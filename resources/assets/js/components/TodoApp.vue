@@ -25,15 +25,6 @@
         props: ['stories-endpoint'],
         created() {
             this.fetchData();
-
-            this.$eventHub.$on('story.update', (payload) => {
-                // reassign the todos & groups variables
-                if (payload.data.success) {
-                    this.todos = payload.data.items;
-                    this.groups = payload.data.groups;
-                }
-            });
-
         },
         data() {
             return {
