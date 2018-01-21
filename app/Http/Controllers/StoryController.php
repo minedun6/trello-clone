@@ -17,8 +17,7 @@ class StoryController extends Controller
     {
         return response()->json([
             'success' => true,
-            'groups' => Group::with('stories')->get(),
-            'items' => Story::with('group')->get()->groupBy('group_id'),
+            'groups' => Group::with('stories')->get()
         ]);
     }
 
@@ -84,8 +83,7 @@ class StoryController extends Controller
 
         return response()->json([
             'success' => true,
-            'groups' => Group::with('stories')->get(),
-            'items' => Story::with('group')->orderBy('updated_at', 'desc')->get()->groupBy('group_id'),
+            'message' => $story,
         ]);
     }
 

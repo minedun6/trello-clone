@@ -11,7 +11,7 @@ window.Vue = require('vue');
 
 Vue.component('todo-app', require('./components/TodoApp.vue'));
 
-Vue.prototype.$eventHub = new Vue()
+Vue.prototype.$eventHub = new Vue();
 
 const app = new Vue({
     el: '#app'

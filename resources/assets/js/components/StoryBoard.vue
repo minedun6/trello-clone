@@ -10,8 +10,9 @@
             <!-- end PROJECT HEAD -->
             <div class="portlet-body scroller" style="height: 500px;">
                 <div class="todo-tasklist">
-                    <vue-draggable style="min-height: 499px;" v-model="group.stories" :options="draggableOptions" @start="drag=true" @end="drag=false">
-                        <story-card v-for="(item, index) in group.stories" :story="item" :key="index"/>
+                    <vue-draggable style="min-height: 499px;" v-model="group.stories" :options="draggableOptions"
+                                   @change="update($event, group)">
+                        <story-card v-for="story in group.stories" :story="story" :key="story.id"/>
                     </vue-draggable>
                 </div>
                 <div class="todo-tasklist-devider"></div>
@@ -31,7 +32,23 @@
         },
         data() {
             return {
-                draggableOptions: {group: 'stories', animation: 150, 'ghostClass': 'ghost', 'chosenClass': 'chosen'}
+                draggableOptions: {
+                    group: "stories",
+                    animation: 150,
+                    handle: ".todo-userpic",
+                    ghostClass: "sortable-ghost",
+                    chosenClass: "sortable-chosen",
+                    forceFallback: false,
+                    fallbackClass: "sortable-fallback",
+                    fallbackOnBody: false,
+                    fallbackTolerance: 0,
+                }
+            }
+        },
+        methods: {
+            update(event, group) {
+                console.log(event);
+                //console.log(group.id)
             }
         }
     };

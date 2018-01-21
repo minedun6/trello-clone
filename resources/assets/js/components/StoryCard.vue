@@ -31,10 +31,20 @@
 </script>
 
 <style>
-    .chosen {
-        opacity: 1;
+    sortable-ghost {
+        color: #EAEAEA;
+        background-color: #EAEAEA;
+        border: 1px dashed #aaa;
     }
-    .ghost {
-        opacity: 1;
+    .sortable-chosen:not(.sortable-ghost) {
+        color: #224466;
+        background-color: #2299ff;
+    }
+    .sortable-drag {
+        color: #449922;
+        background-color: #44ff33;
+    }
+    .todo-userpic {
+        cursor: move;
     }
 </style>
