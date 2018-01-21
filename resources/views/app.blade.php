@@ -11,14 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Oswald:400,300,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="http://keenthemes.com/preview/metronic/theme/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="http://keenthemes.com/preview/metronic/theme/assets/global/css/components.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link href="http://keenthemes.com/preview/metronic/theme/assets/layouts/layout/css/layout.min.css" rel="stylesheet" />
-    <link href="http://keenthemes.com/preview/metronic/theme/assets/layouts/layout/css/custom.min.css"  />
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="page-container-bg-solid page-content-white">
 <div class="page-container" id="app">
