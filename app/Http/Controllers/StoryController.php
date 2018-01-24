@@ -40,7 +40,12 @@ class StoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $story = Group::find(request('group_id'))->stories()->create($request->only('title', 'description', 'due_date'));
+
+        return response()->json([
+            'success' => true,
+            'story' => $story
+        ]);
     }
 
     /**

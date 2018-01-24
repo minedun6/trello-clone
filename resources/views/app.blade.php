@@ -29,9 +29,8 @@
     </div>
 </div>
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ asset('metronic/plugins/jquery-slimscroll/jquery-slimscroll.min.js') }}"></script>
-<script src="http://keenthemes.com/preview/metronic/theme/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="http://keenthemes.com/preview/metronic/theme/assets/global/scripts/app.min.js"></script>
+<script src="{{ asset('metronic/base/metronic.js') }}"></script>
 </body>
 </html>

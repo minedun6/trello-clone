@@ -12,7 +12,7 @@
         </div>
         <div class="portlet-body">
             <div class="todo-content">
-                <story-board v-for="group in groups" :group="group" :groups="groups" :key="group.id"/>
+                <story-board v-for="group in groups" :group="group" :key="group.id"/>
             </div>
         </div>
     </div>
@@ -29,12 +29,15 @@
             this.$eventHub.$on('story.update-group', () => {
                 // axios.put('')
             })
-
         },
         data() {
             return {
                 todos: [],
-                groups: []
+                groups: [],
+                story: {
+                    title: '',
+                    description: ''
+                }
             }
         },
         components: {
