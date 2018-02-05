@@ -27,9 +27,29 @@ export default new Vuex.Store({
             })
         },
         setGroupOrder(context, {group}) {
-            context.commit('setGroupOrder', group);
+            let targetGroup = context.state.groups.find(g => group.id === g.id);
 
-            // context.dispatch('syncStoriesOrder', group)
+            if (targetGroup !== null) {
+                targetGroup.stories.map((story, index) => {
+                    context.commit('setStoryRank', {
+                        story: story,
+                        rank: (index + 1)
+                    });
+                });
+            }
+
+            context.dispatch('syncStoriesOrder', group)
+        },
+        syncStoriesOrder(context, group) {
+            return new Promise((resolve, reject) => {
+                axios.put(`/groups/${group.id}/stories`, {
+                    stories: group.stories
+                }).then(res => {
+                    resolve(res)
+                }).catch(err => {
+                    reject(err)
+                });
+            })
         }
     },
 
@@ -37,19 +57,11 @@ export default new Vuex.Store({
         setGroups(state, groups) {
             state.groups = groups
         },
-        updateList(state, {group, value}) {
-            console.log(group, value)
-        },
         setGroup(state, group) {
             state.newStory.group_id = group
         },
-        setGroupOrder(state, group) {
-            let targetGroup = state.groups.find(g => group.id === g.id);
-            if (targetGroup !== null) {
-                targetGroup.stories.map((story, index) => {
-                    story.rank = index + 1;
-                });
-            }
+        setStoryRank(state, {story, rank}) {
+            story.rank = rank
         }
     },
 
