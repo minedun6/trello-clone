@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Story extends Model
@@ -13,9 +14,14 @@ class Story extends Model
     public static function boot()
     {
         static::creating(function ($model) {
-            // the model refelcts the $this
+            // the model reflects $this
             $model->rank = $model->group->stories()->max('rank') + 1;
         });
+
+        static::addGlobalScope('orderedStories', function (Builder $builder) {
+            $builder->orderBy('rank', 'asc');
+        });
+
     }
 
     public function group()
