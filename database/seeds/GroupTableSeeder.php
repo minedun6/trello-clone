@@ -18,7 +18,7 @@ class GroupTableSeeder extends Seeder
         factory(Group::class)->create(['name' => 'Todo', 'color_class' => 'red']);
         factory(Group::class)->create(['name' => 'Done', 'color_class' => 'green']);
         factory(Group::class)->create(['name' => 'Doing', 'color_class' => 'blue']);
-        //factory(Group::class)->create(['name' => 'Custom Group', 'color_class' => 'purple']);
-        //factory(Group::class)->create(['name' => 'Custom Group2', 'color_class' => 'yellow']);
+        factory(Group::class)->create(['name' => 'Custom Group', 'color_class' => 'purple']);
+        factory(Group::class)->create(['name' => 'Custom Group2', 'color_class' => 'yellow']);
     }
 }
