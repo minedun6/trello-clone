@@ -1,31 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all');
 @import url('/css/bootstrap-v4/bootstrap.css');
 @import url('/css/metronic/components.css');
 @import url('/css/metronic/layout.css');
-@import url('~vue2-scrollbar/dist/style/vue2-scrollbar.css');
 @import url('/css/fontawesome-v5/css/fontawesome-all.css');
 @import url('/css/metronic/todo-v2.css');
-
-/*************************************\
-******* vue-scrollbar Overrides *******
-\*************************************/
-.vue-scrollbar__scrollbar-vertical {
-  width: 5px;
-  height: 100%;
-  top: 0;
-  right: 0;
-}
-.vue-scrollbar__scrollbar-vertical .scrollbar {
-  width: 5px;
-}
-.vue-scrollbar__scrollbar-horizontal {
-  height: 5px;
-  width: 100%;
-  bottom: 0;
-  right: 0;
-}
-.vue-scrollbar__scrollbar-horizontal .scrollbar {
-  height: 5px;
-}
 
 .body {
   font-family: "open-sans";
