@@ -16,16 +16,16 @@
                 </div>
             </div>
         </div>
-        <vue-scrollbar class="portlet-body">
-            <div class="todo-content">
+        <div class="portlet-body drag-container">
+            <vue-draggable :options="groupsDraggableOptions" class="todo-content">
                 <story-board v-for="group in groups" :group="group" :key="group.id"/>
-            </div>
-        </vue-scrollbar>
+            </vue-draggable>
+        </div>
         <b-modal id="storyModal"
-            ref="storyModal"
-            title="Add new Story"
-            class="font-bold"
-            title-tag="h4">
+                 ref="storyModal"
+                 title="Add new Story"
+                 class="font-bold"
+                 title-tag="h4">
             <form @submit.stop.prevent="handleSubmit">
                 <div class="form-group">
                     <label for="story-title" class="label-control">Title</label>
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label for="story-description" class="label-control">Description</label>
                     <textarea id="story-description" cols="10" rows="5"
-                        class="form-control no-resize" v-model="newStory.description">
+                              class="form-control no-resize" v-model="newStory.description">
                     </textarea>
                 </div>
                 <div class="form-group">
@@ -63,13 +63,19 @@
 </template>
 
 <script>
-    import VueScrollbar from 'vue2-scrollbar'
     import vSelect from 'vue-select'
+    import VueDraggable from 'vuedraggable'
     import storyBoard from './StoryBoard'
+    import {groupsDraggableOptions} from "./config";
 
     export default {
         components: {
-            storyBoard, VueScrollbar, vSelect
+            storyBoard, vSelect, VueDraggable
+        },
+        data() {
+            return {
+                groupsDraggableOptions,
+            };
         },
         created() {
             this.$store.dispatch('fetchData')
@@ -97,5 +103,25 @@
     .todo-content {
         display: inline-flex;
         justify-content: space-between;
+    }
+
+    .drag-container {
+        overflow-y: auto;
+    }
+
+    /* Custom styles for scrollbar */
+    ::-webkit-scrollbar-track {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 6px;
+        height: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: darkgrey;
+        -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
     }
 </style>
