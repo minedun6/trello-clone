@@ -3,8 +3,8 @@
 use App\Models\Group;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 use App\Models\Story;
+use Illuminate\Support\Facades\DB;
 
 class StoryTableSeeder extends Seeder
 {
@@ -15,9 +15,9 @@ class StoryTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('stories')->truncate();
+        DB::table('stories')->truncate();
      
-        Collection::times(5, function ($number) {
+        Collection::times(10, function ($number) {
             factory(Story::class)->create(['group_id' => Group::inRandomOrder()->first()->id]);
         });
     }

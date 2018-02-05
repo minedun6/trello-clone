@@ -12,4 +12,11 @@ class Group extends Model
     {
         return $this->hasMany(Story::class);
     }
+
+    public function scopeOrderedStories($query)
+    {
+        return $query->with(['stories' => function ($q) {
+            return $query->orderBy('rank');
+        }]);
+    }
 }

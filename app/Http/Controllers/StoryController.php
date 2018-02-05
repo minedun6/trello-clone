@@ -17,7 +17,9 @@ class StoryController extends Controller
     {
         return response()->json([
             'success' => true,
-            'groups' => Group::with('stories')->get()
+            'groups' => Group::with(['stories' => function ($query) {
+                return $query->orderBy('rank');
+            }])->get()
         ]);
     }
 

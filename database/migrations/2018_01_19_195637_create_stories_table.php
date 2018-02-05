@@ -18,6 +18,7 @@ class CreateStoriesTable extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->timestamp('due_date')->nullable();
+            $table->integer('rank')->default(1);
             $table->integer('group_id')->unsigned()->nullable();
             $table->timestamps();
         });
