@@ -2,13 +2,14 @@
     <div :class="['todo-tasklist-item', 'todo-tasklist-item-border-' + group.color_class]">
         <div class="todo-tasklist-item-header-container">
             <div class="todo-tasklist-item-header-content">
-                <img class="todo-user-picture pull-left" src="/img/user.svg" width="30" height="30">
+                <img class="todo-user-picture pull-left img-circle" 
+                    :src="`https://randomuser.me/api/portraits/med/men/${story.id}.jpg`" width="30" height="30">
                 <div class="todo-tasklist-item-title" v-html="story.title"></div>
             </div>
             <div class="todo-tasklist-item-actions">
-                <b-btn v-b-modal.myModal class="btn default btn-sm">
+                <!-- <b-btn v-b-modal.myModal class="btn-default btn-sm">
                     <i class="fas fa-ellipsis-h"></i>
-                </b-btn>
+                </b-btn> -->
             </div>
         </div>
         <div class="todo-tasklist-item-text"
@@ -40,20 +41,12 @@
 <style>
     .todo-tasklist-item {
         cursor: move !important;
+        box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
     }
 
     .sortable-ghost {
-        color: #EAEAEA;
         background-color: #EAEAEA;
         border: 1px dashed #aaa;
-    }
-    .sortable-chosen:not(.sortable-ghost) {
-        color: #224466;
-        background-color: #2299ff;
-    }
-    .sortable-drag {
-        color: #449922;
-        background-color: #44ff33;
     }
 
     .todo-tasklist-item-header-container {
