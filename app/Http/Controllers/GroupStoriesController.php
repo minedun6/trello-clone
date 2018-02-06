@@ -33,7 +33,7 @@ class GroupStoriesController extends Controller
 
         return response()->json([
             'success' => true,
-            'group' => $group->load('stories')
+            'group' => $group
         ]);
     }
 }

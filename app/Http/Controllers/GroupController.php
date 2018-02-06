@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
-use Illuminate\Http\Request;
 
 class GroupController extends Controller
 {
@@ -11,7 +10,7 @@ class GroupController extends Controller
     {
         return response()->json([
             'success' => true,
-            'groups' => Group::with('stories')->get()
+            'groups' => Group::all()
         ]);
     }
 }

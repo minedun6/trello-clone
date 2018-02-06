@@ -17,7 +17,7 @@ class StoryController extends Controller
     {
         return response()->json([
             'success' => true,
-            'groups' => Group::with('stories')->get()
+            'groups' => Group::all()
         ]);
     }
 
