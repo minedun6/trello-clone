@@ -8,6 +8,10 @@ export const storyDraggableOptions = {
     fallbackTolerance: 0,
     scroll: true,
     scrollSpeed: 10
+    // setData(dataTransfer) {
+    //     console.log(dataTransfer)
+    //     dataTransfer.setDragImage(null, 0, 0);
+    // }
 };
 
 export const groupsDraggableOptions = {
