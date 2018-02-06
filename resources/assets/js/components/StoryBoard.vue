@@ -1,19 +1,19 @@
 <template>
-    <div class="column" style="width: 400px;">
+    <div class="column">
         <div class="portlet light bordered">
-            <div class="portlet-title">
+            <div class="portlet-title group-handle">
                 <div class="caption">
                     <span class="caption-subject bold uppercase">
                         {{ group.name }}
                     </span>
-                    <span class="badge badge-default text-black">
-                        {{ group.stories_count }}
+                    <span class="badge badge-default">
+                        {{ storiesCount }}
                     </span>
                 </div>
             </div>
             <!-- end PROJECT HEAD -->
-            <div class="portlet-body board-container">
-                <div class="todo-tasklist">
+            <div class="portlet-body">
+                <div class="todo-tasklist board-container">
                     <vue-draggable style="min-height: 499px;"
                                    :list="group.stories"
                                    :options="storyDraggableOptions"
@@ -44,6 +44,11 @@
                 storyDraggableOptions,
             };
         },
+        computed: {
+           storiesCount() {
+               return this.group.stories.length
+           } 
+        },
         methods: {
             syncStoriesOrder(group) {
                 this.$store.dispatch('setGroupOrder', {group});
@@ -53,11 +58,14 @@
 </script>
 
 <style>
+
     .no-resize {
         resize: none;
     }
 
     .column {
+        height: 100%;
+        width: 400px;
         margin-right: 20px;
     }
 
