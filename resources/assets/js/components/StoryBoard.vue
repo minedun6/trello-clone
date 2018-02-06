@@ -7,7 +7,7 @@
                         {{ group.name }}
                     </span>
                     <span class="badge badge-default text-black">
-                        {{ groupStoriesCount }}
+                        {{ group.stories_count }}
                     </span>
                 </div>
             </div>
@@ -43,11 +43,6 @@
             return {
                 storyDraggableOptions,
             };
-        },
-        computed: {
-            groupStoriesCount() {
-                return this.group.stories.length;
-            }
         },
         methods: {
             syncStoriesOrder(group) {
