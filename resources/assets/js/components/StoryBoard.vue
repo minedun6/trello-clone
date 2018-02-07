@@ -58,6 +58,9 @@
 </script>
 
 <style>
+    .group-handle {
+        cursor: move;
+    }
 
     .no-resize {
         resize: none;

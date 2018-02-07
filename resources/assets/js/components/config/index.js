@@ -20,6 +20,7 @@ export const groupsDraggableOptions = {
     animation: 150,
     ghostClass: ".sortable-ghost",
     chosenClass: ".sortable-chosen",
+    handle: ".group-handle",
     forceFallback: false,
     fallbackOnBody: false,
     fallbackTolerance: 0,
