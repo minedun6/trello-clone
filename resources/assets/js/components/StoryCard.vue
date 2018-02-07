@@ -44,11 +44,6 @@
         box-shadow: 1px 2px 1px rgba(0,0,0,0.3);
     }
 
-    .sortable-ghost {
-        background-color: #EAEAEA;
-        border: 1px dashed #aaa;
-    }
-
     .todo-tasklist-item-header-container {
         display: inline-flex;
         align-items: flex-start;
