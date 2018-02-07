@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="portlet-body drag-container">
-            <vue-draggable :options="groupsDraggableOptions" class="todo-content">
+            <vue-draggable :list="groups" :options="groupsDraggableOptions" class="todo-content" @change="syncGroupsOrder">
                 <story-board v-for="group in groups" :group="group" :key="group.id"/>
             </vue-draggable>
         </div>
@@ -94,6 +94,9 @@
             },
             setGroup(value) {
                 this.$store.commit('setGroup', value)
+            },
+            syncGroupsOrder(event) {
+                this.$store.dispatch('setGroupsOrder');
             }
         }
     }

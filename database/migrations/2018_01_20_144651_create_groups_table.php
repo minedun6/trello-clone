@@ -17,6 +17,7 @@ class CreateGroupsTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('color_class')->nullable();
+            $table->integer('order')->nullable();
             $table->timestamps();
         });
     }

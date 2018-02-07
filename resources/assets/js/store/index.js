@@ -20,10 +20,32 @@ export default new Vuex.Store({
             axios.get('/stories')
                 .then(res => {
                     if (res.data.success) {
-                        context.commit('setGroups', res.data.groups);
+                        context.commit('setGroups', res.data.groups)
                     }
                 }).catch(err => {
                 console.log(err)
+            })
+        },
+        setGroupsOrder(context, payload) {
+            context.state.groups.map((group, index) => {
+                context.commit('setGroupOrder', {
+                    group: group,
+                    order: (index + 1)
+                })
+            })
+
+            context.dispatch('syncGroupsOrder', context.state.groups)
+        },
+        syncGroupsOrder(context, groups) {
+            return new Promise((resolve, reject) => {
+                axios.put(`/projects/groups/`, {
+                    groups: groups
+                }).then(res => {
+                    context.commit('setGroups', res.data.groups)
+                    resolve(res)
+                }).catch(err => {
+                    reject(err)
+                })
             })
         },
         setGroupOrder(context, {group}) {
@@ -34,8 +56,8 @@ export default new Vuex.Store({
                     context.commit('setStoryRank', {
                         story: story,
                         rank: (index + 1)
-                    });
-                });
+                    })
+                })
             }
 
             context.dispatch('syncStoriesOrder', group)
@@ -48,7 +70,7 @@ export default new Vuex.Store({
                     resolve(res)
                 }).catch(err => {
                     reject(err)
-                });
+                })
             })
         }
     },
@@ -62,8 +84,11 @@ export default new Vuex.Store({
         },
         setStoryRank(state, {story, rank}) {
             story.rank = rank
+        },
+        setGroupOrder(state, {group, order}) {
+            group.order = order
         }
-    },
+    }, 
 
     getters: {
         groups(state, getters) {
