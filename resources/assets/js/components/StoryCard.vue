@@ -1,5 +1,5 @@
 <template>
-    <div :class="['todo-tasklist-item', 'todo-tasklist-item-border-' + group.color_class]">
+    <div class="todo-tasklist-item" :class="['todo-tasklist-item-border-' + group.color_class]">
         <div class="todo-tasklist-item-header-container">
             <div class="todo-tasklist-item-header-content">
                 <img class="todo-user-picture pull-left img-circle" 
