@@ -1,12 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import newGroup from ''
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
         groups: [],
+        newGroup: {
+            name: ''
+        },
         newStory: {
             title: '',
             description: '',
@@ -72,6 +76,21 @@ export default new Vuex.Store({
                     reject(err)
                 })
             })
+        },
+        createNewGroup(context, group) {
+            return new Promise((resolve, reject) => {
+                axios.post('/groups', {
+                    group
+                }).then(res => {
+                    if (res.data.success) {
+                        context.commit('addNewGroup', res.data.group)
+                        context.commit('resetGroup');
+                    }
+                    resolve(res)
+                }).catch(err => {
+                    reject(err)
+                })
+            })
         }
     },
 
@@ -87,8 +106,11 @@ export default new Vuex.Store({
         },
         setGroupOrder(state, {group, order}) {
             group.order = order
+        },
+        addNewGroup(state, group) {
+            state.groups.push(group)
         }
-    }, 
+    },
 
     getters: {
         groups(state, getters) {
@@ -96,6 +118,9 @@ export default new Vuex.Store({
         },
         newStory(state, getters) {
             return state.newStory
+        },
+        newGroup(state, getters) {
+            return state.newGroup
         }
     }
 

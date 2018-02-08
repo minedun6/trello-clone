@@ -2,10 +2,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import BootstrapVue from 'bootstrap-vue';
 import store from './store'
-
-Vue.use(BootstrapVue);
 
 Vue.component('todo-app', require('./components/TodoApp.vue'));
 

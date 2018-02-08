@@ -2,7 +2,7 @@
     <div class="todo-tasklist-item" :class="['todo-tasklist-item-border-' + group.color_class]">
         <div class="todo-tasklist-item-header-container">
             <div class="todo-tasklist-item-header-content">
-                <img class="todo-user-picture pull-left img-circle" 
+                <img class="todo-user-picture pull-left img-circle"
                     :src="`https://randomuser.me/api/portraits/med/men/${story.id}.jpg`" width="30" height="30">
                 <div class="todo-tasklist-item-title" v-html="story.title"></div>
             </div>

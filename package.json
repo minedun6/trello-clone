@@ -18,8 +18,8 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.0-rc.1",
     "jquery-ui": "^1.12.1",
+    "lodash": "^4.17.5",
     "moment": "^2.20.1",
     "vue-select": "^2.4.0",
     "vuedraggable": "^2.16.0",

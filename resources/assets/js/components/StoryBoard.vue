@@ -1,6 +1,6 @@
 <template>
     <div class="column">
-        <div class="portlet light bordered">
+        <div class="portlet light bordered column-container">
             <div class="portlet-title group-handle">
                 <div class="caption">
                     <span class="caption-subject bold uppercase">
@@ -47,7 +47,7 @@
         computed: {
            storiesCount() {
                return this.group.stories.length
-           } 
+           }
         },
         methods: {
             syncStoriesOrder(group) {
@@ -70,6 +70,10 @@
         height: 100%;
         width: 400px;
         margin-right: 20px;
+    }
+
+    .column-container {
+        border-radius: 5px !important;
     }
 
     .board-container {

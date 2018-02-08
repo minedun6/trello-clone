@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all');
-@import url('/css/bootstrap-v4/bootstrap.css');
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
 @import url('/css/metronic/components.css');
 @import url('/css/metronic/layout.css');
 @import url('/css/fontawesome-v5/css/fontawesome-all.css');
