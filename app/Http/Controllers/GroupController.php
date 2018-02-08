@@ -13,4 +13,17 @@ class GroupController extends Controller
             'groups' => Group::all()
         ]);
     }
+
+    public function store()
+    {
+        $group = Group::create([
+            'name' => request('group')['name']
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'group' => $group
+        ]);
+    }
+
 }
