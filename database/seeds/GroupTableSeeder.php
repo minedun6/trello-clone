@@ -2,6 +2,7 @@
 
 use App\Models\Group;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class GroupTableSeeder extends Seeder
@@ -15,6 +16,8 @@ class GroupTableSeeder extends Seeder
     {
         DB::table('groups')->truncate();
 
-        factory(Group::class)->create(['name' => 'Todo', 'color_class' => 'red']);
+        Collection::times(7, function ($number) {
+            factory(Group::class)->create();
+        });
     }
 }
