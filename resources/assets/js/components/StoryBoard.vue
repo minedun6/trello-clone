@@ -68,7 +68,7 @@
 
     .column {
         height: 100%;
-        width: 400px;
+        width: 350px;
         margin-right: 20px;
     }
 
