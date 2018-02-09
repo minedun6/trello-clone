@@ -1,110 +1,24 @@
-<div class="col-md-4 sortable-group column" v-for="group in todoApp.groups" :id="group.id">
-    <div class="portlet light bordered">
-        <div class="portlet-title">
-            <div class="caption">
-                <i class="icon-bar-chart font-green-sharp hide"></i>
-                <span class="caption-subject font-green-sharp bold uppercase"
-                      v-html="group.name">
-            </span>
-            </div>
-            <div class="actions">
-                <div class="btn-group">
-                    <a class="btn green btn-circle btn-sm" href="javascript:;"
-                       data-toggle="dropdown" data-hover="dropdown"
-                       data-close-others="true">
-                        MANAGE
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu pull-right">
-                        <li>
-                            <a href="javascript:;"> New Task </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="javascript:;"> Pending
-                                <span class="badge badge-danger"> 4 </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Completed
-                                <span class="badge badge-success"> 12 </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Overdue
-                                <span class="badge badge-warning"> 9 </span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="javascript:;"> Delete Project </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- end PROJECT HEAD -->
-        <div class="portlet-body scroller" style="height: 500px;">
-            <div class="todo-tasklist">
-                <div class="todo-tasklist-item" v-for="todo in group.todos" :id="todo.id">
-                    <img class="todo-userpic pull-left"
-                         src="http://keenthemes.com/preview/metronic/theme/assets/pages/media/users/avatar4.jpg"
-                         width="27px" height="27px">
-                    <div class="todo-tasklist-item-title" v-html="todo.title"></div>
-                    <div class="todo-tasklist-item-text"
-                         v-html="todo.description"></div>
-                    <div class="todo-tasklist-controls pull-left">
-                    <span class="todo-tasklist-date">
-                        <i class="fa fa-calendar"></i> {{ todo.due_date | dueDate }}
-                    </span>
-                        <span v-for="tag in todo.tags">
-                        <span class="todo-tasklist-badge badge badge-roundless">{{ tag.name }}</span>
-                        &nbsp;
-                    </span>
-                    </div>
-                </div>
-            </div>
-            <div class="todo-tasklist-devider"></div>
-        </div>
+<form @submit.stop.prevent="handleSubmit">
+    <div class="form-group">
+        <label for="story-title" class="label-control">Title</label>
+        <input type="text" class="form-control" id="story-title" v-model="newStory.title">
     </div>
-</div>
-
-
-let _vm = this;
-$(".sortable-group").sortable({
-  connectWith: ".column",
-  items: ".todo-tasklist-item",
-  coneHelperSize: true,
-  placeholder: "portlet-sortable-placeholder",
-  forcePlaceholderSize: true,
-  tolerance: "pointer",
-  helper: "clone",
-  receive: function(event, ui) {
-    // let targetGroup = _vm.todoApp.groups.find(g => g.id === this.id);
-    // let originalGroup = _vm.todoApp.groups.find(g => g.id === ui.sender[0].id);
-    // let draggedTodo = originalGroup.todos.find(t => t.id === ui.item[0].id);
-    // let index = originalGroup.todos.indexOf(draggedTodo);
-    //
-    // // move to new group
-    // targetGroup.todos.push(draggedTodo);
-    // // splice it from the old group
-    // originalGroup.todos.splice(index, 1);
-    //
-    // console.log(_vm.todoApp.groups);
-  },
-  update: function(event, ui) {
-    let order = $(this).sortable("toArray");
-    //console.log(order);
-  }
-});
-
-let finalOrder = [];
-$('.column').each(function (k, v) {
-    let groupId = $(v).attr('id');
-    let groupBuilder = [];
-    $(v).find('.todo-tasklist-item').each(function (key, item) {
-        groupBuilder.push($(item).data('story-id'));
-        finalOrder.push([groupId, $(item).data('story-id')]);
-    });
-});
-console.log(finalOrder);
+    <div class="form-group">
+        <label for="story-description" class="label-control">Description</label>
+        <textarea id="story-description" cols="10" rows="5"
+                  class="form-control no-resize" v-model="newStory.description">
+            </textarea>
+    </div>
+    <div class="form-group">
+        <label for="story-due-date" class="label-control">Due Date</label>
+        <input type="date" id="story-due-date" class="form-control" v-model="newStory.due_date">
+    </div>
+    <div class="form-group">
+        <label for="story-due-date" class="label-control">Group</label>
+        <v-select label="name"
+                  :options="$store.state.groups"
+                  :value="$store.state.newStory.group_id"
+                  @input="setGroup">
+        </v-select>
+    </div>
+</form>

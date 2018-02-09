@@ -2,10 +2,14 @@
 
 use App\Models\Group;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class GroupTableSeeder extends Seeder
 {
+
+    protected $groupsName = ['Todo', 'Done', 'In progress', 'Custom group 1', 'Custom group 2'];
+
     /**
      * Run the database seeds.
      *
@@ -15,6 +19,8 @@ class GroupTableSeeder extends Seeder
     {
         DB::table('groups')->truncate();
 
-        factory(Group::class)->create(['name' => 'Todo', 'color_class' => 'red']);
+        collect($this->groupsName)->each(function ($groupName) {
+            factory(Group::class)->create(['name' => $groupName]);
+        });
     }
 }

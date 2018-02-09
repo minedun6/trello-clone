@@ -1,5 +1,5 @@
 <template>
-    <div class="todo-tasklist-item" :class="['todo-tasklist-item-border-' + group.color_class]">
+    <div class="todo-tasklist-item" :style="borderColor">
         <div class="todo-tasklist-item-header-container">
             <div class="todo-tasklist-item-header-content">
                 <img class="todo-user-picture pull-left img-circle"
@@ -30,6 +30,11 @@
 
     export default {
         props: ["story", "group"],
+        computed: {
+            borderColor() {
+                return 'border-left: 2px solid ' + this.group.color_class;
+            }
+        },
         filters: {
             dueDate(date) {
                 return moment(date).fromNow();

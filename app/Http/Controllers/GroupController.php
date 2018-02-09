@@ -18,7 +18,7 @@ class GroupController extends Controller
     {
         $group = Group::create([
             'name' => request('group')['name']
-        ]);
+        ])->fresh();
 
         return response()->json([
             'success' => true,

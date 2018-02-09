@@ -13,17 +13,11 @@ class Group extends Model
 
     protected $withCount = ['stories'];
 
-    protected $classes = ['red', 'blue', 'purple', 'green', ];
-
     public static function boot()
     {
         self::creating(function ($model) {
             $model->order = $model->max('order') + 1;
-            $model->color_class = '';
-        });
-
-        self::created(function ($model) {
-            $model->load('stories');
+            $model->color_class = random_color();
         });
 
         static::addGlobalScope('orderedGroups', function (Builder $builder) {
