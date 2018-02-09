@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class GroupTableSeeder extends Seeder
 {
+
+    protected $groupsName = ['Todo', 'Done', 'In progress', 'Custom group 1', 'Custom group 2'];
+
     /**
      * Run the database seeds.
      *
@@ -16,8 +19,8 @@ class GroupTableSeeder extends Seeder
     {
         DB::table('groups')->truncate();
 
-        Collection::times(7, function ($number) {
-            factory(Group::class)->create();
+        collect($this->groupsName)->each(function ($groupName) {
+            factory(Group::class)->create(['name' => $groupName]);
         });
     }
 }
