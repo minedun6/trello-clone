@@ -3,7 +3,7 @@
 if (! function_exists('ddd')) {
 
     /**
-     * workround for the laravel helper function dd
+     * workaround for the laravel helper function dd
      * @param array $args
      */
     function ddd(...$args)
@@ -16,10 +16,10 @@ if (! function_exists('ddd')) {
 if (! function_exists('random_color')) {
 
     /**
-     * workround for the laravel helper function dd
+     * generates a random color
      */
     function random_color()
     {
-        return '#' . dechex(rand(0x000000, 0xFFFFFF));
+        return '#' . dechex(rand(0x000000, 0xDDDDDD));
     }
 }
