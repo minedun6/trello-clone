@@ -11,13 +11,17 @@
             </div>
         </div>
         <div class="portlet-body drag-container">
-            <vue-draggable :list="groups" :options="groupsDraggableOptions" class="todo-content"
-                           @change="syncGroupsOrder">
-                <story-board v-for="group in groups" :group="group" :key="group.id"/>
-                <new-story-board></new-story-board>
-            </vue-draggable>
+            <div class="todo-content">
+                <vue-draggable class="draggable-area"
+                               :list="groups"
+                               :options="groupsDraggableOptions"
+                               @change="syncGroupsOrder">
+                    <story-board v-for="group in groups" :group="group" :key="group.id"/>
+                </vue-draggable>
+                <new-story-board/>
+            </div>
         </div>
-        <story-modal></story-modal>
+        <story-modal/>
     </div>
 </template>
 
@@ -69,9 +73,12 @@
         justify-content: space-between;
     }
 
+    .draggable-area {
+        display: flex;
+    }
+
     .drag-container {
         overflow-y: auto;
-        height: 600px;
     }
 
     /* Custom styles for scrollbar */
