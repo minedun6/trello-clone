@@ -1,7 +1,6 @@
 export const draggableOptions = {
     groups: {
         group: "groups",
-        handle: ".group-handle",
         animation: 150,
         forceFallback: false,
         fallbackOnBody: false,
@@ -11,6 +10,7 @@ export const draggableOptions = {
     },
     stories: {
         group: "stories",
+        handle: ".card",                
         animation: 150,
         forceFallback: false,
         fallbackOnBody: false,

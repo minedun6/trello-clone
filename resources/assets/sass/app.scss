@@ -3,6 +3,9 @@
 /*-------------------------------------*\
 -------- Tailwind components ------------
 \*-------------------------------------*/
+.card-list {
+  @apply .text-sm .mt-2 .overflow-y-scroll .px-2 .mr-1 .mb-2 .h-80;
+}
 
 .card {
   @apply .bg-white .p-2 .rounded .mt-2 .border-b .border-grey .shadow .font-normal;
@@ -11,10 +14,18 @@
   }
 }
 
+.sortable-chosen {
+  &.sortable-ghost {
+    //border: 1px solid red;
+    background-color: yellow;
+  }
+}
+
 /* Custom styles for scrollbar */
 ::-webkit-scrollbar-track {
   -webkit-border-radius: 10px;
   border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
 ::-webkit-scrollbar {

@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
-<body class="bg-blue font-sans antialiased mx-auto container h-80">
+<body class="bg-blue font-sans antialiased h-screen">
 @yield('content')
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>

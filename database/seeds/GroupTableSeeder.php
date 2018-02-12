@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class GroupTableSeeder extends Seeder
 {
-
-    protected $groupsName = ['Todo', 'Done', 'In progress', 'Custom group 1', 'Custom group 2'];
+    protected $groupsName = ['Todo', 'Done', 'In progress', 'Custom group 1', 'Custom group 2', 'Custom group 3', 'Custom-group-4'];
 
     /**
      * Run the database seeds.
