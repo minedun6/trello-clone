@@ -13,21 +13,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
-<body class="page-container-bg-solid page-content-white">
-<div class="page-container" id="app">
-    <!-- BEGIN CONTENT -->
-    <div class="page-content-wrapper">
-        <!-- BEGIN CONTENT BODY -->
-        <div class="page-content" style="margin: 0;">
-            <!-- END PAGE HEADER-->
-            <div class="row">
-                <div class="col-md-12">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<body class="bg-blue font-sans antialiased mx-auto container h-80">
+@yield('content')
 <!-- Scripts -->
 <script src="{{ mix('js/app.js') }}"></script>
 </body>

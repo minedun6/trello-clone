@@ -16,8 +16,8 @@ class StoryTableSeeder extends Seeder
     public function run()
     {
         DB::table('stories')->truncate();
-     
-        Collection::times(10, function ($number) {
+
+        Collection::times(50, function ($number) {
             factory(Story::class)->create(['group_id' => Group::inRandomOrder()->first()->id]);
         });
     }

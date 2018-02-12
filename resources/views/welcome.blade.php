@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="todo-ui" id="app">
-        <todo-app></todo-app>
+        <kanban-board></kanban-board>
     </div>
 @stop

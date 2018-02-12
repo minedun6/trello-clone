@@ -1,13 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all');
+@tailwind preflight;
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+/*-------------------------------------*\
+-------- Tailwind components ------------
+\*-------------------------------------*/
 
-@import url('/css/metronic/components.css');
-@import url('/css/metronic/layout.css');
-@import url('/css/fontawesome-v5/css/fontawesome-all.css');
-@import url('/css/metronic/todo-v2.css');
-
-.body {
-  font-family: "open-sans";
+.card {
+  @apply .bg-white .p-2 .rounded .mt-2 .border-b .border-grey .shadow .font-normal;
+  &:hover {
+    @apply .bg-grey-lighter;
+  }
 }
+
+/* Custom styles for scrollbar */
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #d6dadc;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: darkgrey;
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+@tailwind utilities;

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+//import {colors} from '/tailwind'
 
 Vue.use(Vuex);
 
@@ -8,7 +9,8 @@ export default new Vuex.Store({
     state: {
         groups: [],
         newGroup: {
-            name: ''
+            name: '',
+            color_class: ''
         },
         newStory: {
             title: '',
@@ -17,15 +19,13 @@ export default new Vuex.Store({
             group_id: ''
         }
     },
-
     actions: {
         fetchData(context) {
-            axios.get('/stories')
-                .then(res => {
-                    if (res.data.success) {
-                        context.commit('setGroups', res.data.groups)
-                    }
-                }).catch(err => {
+            axios.get('/stories').then(res => {
+                if (res.data.success) {
+                    context.commit('setGroups', res.data.groups)
+                }
+            }).catch(err => {
                 console.log(err)
             })
         },
@@ -36,7 +36,6 @@ export default new Vuex.Store({
                     order: (index + 1)
                 })
             })
-
             context.dispatch('syncGroupsOrder', context.state.groups)
         },
         syncGroupsOrder(context, groups) {
@@ -51,9 +50,10 @@ export default new Vuex.Store({
                 })
             })
         },
-        setGroupOrder(context, {group}) {
+        setGroupOrder(context, {
+            group
+        }) {
             let targetGroup = context.state.groups.find(g => group.id === g.id);
-
             if (targetGroup !== null) {
                 targetGroup.stories.map((story, index) => {
                     context.commit('setStoryRank', {
@@ -62,7 +62,6 @@ export default new Vuex.Store({
                     })
                 })
             }
-
             context.dispatch('syncStoriesOrder', group)
         },
         syncStoriesOrder(context, group) {
@@ -92,7 +91,6 @@ export default new Vuex.Store({
             })
         }
     },
-
     mutations: {
         setGroups(state, groups) {
             state.groups = groups
@@ -100,17 +98,22 @@ export default new Vuex.Store({
         setGroup(state, group) {
             state.newStory.group_id = group
         },
-        setStoryRank(state, {story, rank}) {
+        setStoryRank(state, {
+            story,
+            rank
+        }) {
             story.rank = rank
         },
-        setGroupOrder(state, {group, order}) {
+        setGroupOrder(state, {
+            group,
+            order
+        }) {
             group.order = order
         },
         addNewGroup(state, group) {
             state.groups.push(group)
         }
     },
-
     getters: {
         groups(state, getters) {
             return state.groups
@@ -122,5 +125,4 @@ export default new Vuex.Store({
             return state.newGroup
         }
     }
-
 });
