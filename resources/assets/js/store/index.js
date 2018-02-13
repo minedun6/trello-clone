@@ -17,16 +17,23 @@ export default new Vuex.Store({
             description: '',
             due_date: '',
             group_id: ''
-        }
+        },
+        loading: false,
     },
     actions: {
         fetchData(context) {
+            context.commit('enableLoading', true)
+
             axios.get('/stories').then(res => {
                 if (res.data.success) {
-                    context.commit('setGroups', res.data.groups)
+                    setTimeout(() => {
+                        context.commit('setGroups', res.data.groups)
+                        context.commit('enableLoading', false)
+                    }, 5000)
                 }
             }).catch(err => {
                 console.log(err)
+                context.commit('enableLoading', false)
             })
         },
         setGroupsOrder(context, payload) {
@@ -112,6 +119,9 @@ export default new Vuex.Store({
         },
         addNewGroup(state, group) {
             state.groups.push(group)
+        },
+        enableLoading(state, isLoading) {
+            state.loading = isLoading
         }
     },
     getters: {
@@ -123,6 +133,9 @@ export default new Vuex.Store({
         },
         newGroup(state, getters) {
             return state.newGroup
+        },
+        loading(state, getters) {
+            return state.loading
         }
     }
 });
