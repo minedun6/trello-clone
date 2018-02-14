@@ -1,5 +1,5 @@
 <template>
-    <div class="flex px-1 py-2 bg-blue-dark items-center justify-between">
+    <div class="flex px-1 py-2 bg-blue-dark items-center justify-between fixed pin-t w-full">
         <div class="hidden md:flex justify-start">
             <button class="bg-blue-light rounded p-2 font-bold text-white text-sm mr-2 flex">
                 <svg class="fill-current text-white h-4 mr-2" xmlns="http://www.w3.org/2000/svg"
