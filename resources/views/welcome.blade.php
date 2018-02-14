@@ -1,7 +1,9 @@
 @extends('app')
 
 @section('content')
-    <div class="todo-ui" id="app">
+    <div id="app">
+        <navigation></navigation>
+        <project-menu></project-menu>
         <kanban-board></kanban-board>
     </div>
 @stop

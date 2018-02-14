@@ -8,6 +8,8 @@ import faSpinner from '@fortawesome/fontawesome-free-solid/faSpinner'
 fontawesome.library.add(solid, faSpinner);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('navigation', require('./components/Navigation.vue'));
+Vue.component('project-menu', require('./components/ProjectMenu.vue'));
 Vue.component('kanban-board', require('./components/KanbanBoard.vue'));
 
 const app = new Vue({
