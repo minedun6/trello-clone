@@ -1,5 +1,7 @@
 @tailwind preflight;
 
+@tailwind utilities;
+
 /*-------------------------------------*\
 -------- Tailwind components ------------
 \*-------------------------------------*/
@@ -69,5 +71,3 @@
     transform: rotate(360deg);
   }
 }
-
-@tailwind utilities;
