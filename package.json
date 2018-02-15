@@ -22,6 +22,7 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.6",
     "@fortawesome/vue-fontawesome": "0.0.22",
     "jquery-ui": "^1.12.1",
+    "laravel-mix-purgecss": "^1.0.5",
     "lodash": "^4.17.5",
     "moment": "^2.20.1",
     "vue-fineuploader": "^2.0.0-rc.9",
