@@ -4,12 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Story extends Model
+class Story extends Model implements HasMedia
 {
+    use HasMediaTrait;
+
     protected $guarded = [];
 
     protected $dates = ['due_date'];
+
+    protected $with = ['media'];
+
+    protected $withCount = ['media'];
 
     public static function boot()
     {

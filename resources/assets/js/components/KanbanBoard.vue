@@ -20,8 +20,8 @@
             <div class="card-list">
                 <vue-draggable :options="draggableOptions.stories" :list="group.stories" class="h-full">
                     <div class="card" :style="cardBorderStyle(group)" v-for="story in group.stories" :key="story.id">
-                        <p>{{ story.title }}</p>
-                        <div class="text-grey-darker mt-2 ml-2 flex justify-between items-end">
+                        <p class="p-2">{{ story.title }}</p>
+                        <div class="text-grey-darker mt-2 ml-2 flex justify-between items-end p-1">
                             <div class="flex items-center">
                                 <font-awesome-icon class="mr-1" icon="clock"/>
                                 <time>{{ story.due_date | formatedDueDate }}</time>
@@ -30,9 +30,12 @@
                                  height="30"
                                  class="rounded-full"/>
                         </div>
+                        <!--<div class="flex justify-end">-->
+                            <!--<uploader :story="story"/>-->
+                        <!--</div>-->
                     </div>
                 </vue-draggable>
-                <new-group />
+                <!--<new-group/>-->
             </div>
             <a href="#"
                class="p-2 text-grey-dark no-underline hover:underline hover:text-grey-darkest static clearfix hover:bg-grey rounded-b w-full h-full pin-b inline-block">
@@ -46,11 +49,12 @@
     import Navigation from './Navigation'
     import moment from "moment";
     import NewGroup from './NewGroup'
+    import Uploader from './Uploader'
     import {draggableOptions} from './config'
 
     export default {
         components: {
-            VueDraggable, Navigation, NewGroup
+            VueDraggable, Navigation, NewGroup, Uploader
         },
         props: [],
         data() {

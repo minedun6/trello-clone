@@ -1,10 +1,11 @@
 <?php
 
 Route::get('/', 'PageController@index');
-Route::get('/uploads', 'PageController@uploads');
 
 Route::resource('groups', 'GroupController');
 Route::resource('stories', 'StoryController');
+
+Route::post('/stories/{story}/attachements', 'StoryAttachementsController@store');
 
 Route::post('/uploads', 'PageController@upload')->name('uploads');
 

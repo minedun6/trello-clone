@@ -29,7 +29,7 @@ export default new Vuex.Store({
                     setTimeout(() => {
                         context.commit('setGroups', res.data.groups)
                         context.commit('enableLoading', false)
-                    }, 2000)
+                    }, 0)
                 }
             }).catch(err => {
                 console.log(err)

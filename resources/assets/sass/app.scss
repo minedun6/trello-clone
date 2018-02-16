@@ -10,7 +10,7 @@
 }
 
 .card {
-  @apply .bg-white .p-2 .rounded .mt-2 .border-b .border-grey .shadow .font-normal;
+  @apply .bg-white .rounded .mt-2 .border-b .border-grey .shadow .font-normal;
   &:hover {
     @apply .bg-grey-lighter;
   }
