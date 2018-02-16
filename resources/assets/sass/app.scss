@@ -5,6 +5,10 @@
 /*-------------------------------------*\
 -------- Tailwind components ------------
 \*-------------------------------------*/
+.column {
+  @apply .rounded .bg-grey-light .flex-no-shrink .w-80 .mr-3;
+}
+
 .card-list {
   @apply .text-sm .mt-2 .overflow-y-scroll .px-2 .mr-1 .mb-2 .h-80;
 }

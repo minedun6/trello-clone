@@ -1,8 +1,7 @@
 <template>
     <!-- add the navigation here -->
     <div class="flex items-start ml-2 h-screen overflow-x-scroll">
-        <div v-for="group in groups" :key="group.id"
-             class="rounded bg-grey-light flex-no-shrink w-80 mr-3">
+        <div v-for="group in groups" :key="group.id" class="column">
             <div class="flex justify-between pt-3 px-4">
                 <h3 class="text-sm text-grey-darker">
                     <div class="flex">
@@ -35,13 +34,13 @@
                         <!--</div>-->
                     </div>
                 </vue-draggable>
-                <!--<new-group/>-->
             </div>
             <a href="#"
                class="p-2 text-grey-dark no-underline hover:underline hover:text-grey-darkest static clearfix hover:bg-grey rounded-b w-full h-full pin-b inline-block">
                 Add a card ...
             </a>
         </div>
+        <new-group />
     </div>
 </template>
 <script>

@@ -26,10 +26,8 @@ export default new Vuex.Store({
 
             axios.get('/stories').then(res => {
                 if (res.data.success) {
-                    setTimeout(() => {
-                        context.commit('setGroups', res.data.groups)
-                        context.commit('enableLoading', false)
-                    }, 0)
+                    context.commit('setGroups', res.data.groups)
+                    context.commit('enableLoading', false)
                 }
             }).catch(err => {
                 console.log(err)
