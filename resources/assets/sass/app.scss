@@ -1,3 +1,5 @@
+@import "components/btn";
+
 @tailwind preflight;
 
 @tailwind utilities;
@@ -50,18 +52,25 @@
   -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
-.loader {
-  animation: spin 500ms infinite linear;
-  border: 2px solid #dbdbdb;
-  border-radius: 290486px;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  content: "";
-  display: block;
-  width: 1em;
-  height: 1em;
-  left: calc(50% - (1em / 2));
-  top: calc(50% - (1em / 2));
+a {
+  @apply .text-grey-darkest;
+  text-decoration: none;
+
+  &.link:hover {
+    text-decoration: underline;
+  }
+}
+
+.form-control {
+  @apply .border .border-grey-light .bg-grey-lighter .rounded .p-2 .leading-normal .shadow-inner;
+  &:focus {
+    @apply .bg-white;
+    outline: none;
+  }
+}
+
+[v-cloak] {
+  display: none;
 }
 
 @keyframes spin {
