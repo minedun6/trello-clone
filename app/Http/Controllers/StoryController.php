@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\Story;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class StoryController extends Controller
@@ -40,7 +41,10 @@ class StoryController extends Controller
      */
     public function store(Request $request)
     {
-        $story = Group::find(request('group_id'))->stories()->create($request->only('title', 'description', 'due_date'));
+        $story = Group::find($request->input('story.group_id'))->stories()->create([
+            'description' => $request->input('story.title'),
+            'due_date' => Carbon::parse($request->input('story.due_date'))
+        ]);
 
         return response()->json([
             'success' => true,
@@ -76,7 +80,7 @@ class StoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param \App\Models\Story         $story
+     * @param \App\Models\Story $story
      *
      * @return \Illuminate\Http\JsonResponse
      */

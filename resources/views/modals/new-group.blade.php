@@ -13,7 +13,10 @@
             </div>
             <div class="flex">
                 <button type="submit" class="btn rounded"
-                        :class="{'loader': loading, 'cursor-not-allowed' : group.name.length < 1 }" :disabled="loading || group.name.length < 1">Create column
+                                 :class="{'loader': loading, 'cursor-not-allowed' : group.name.length < 1 }" :disabled="loading || group.name.length < 1">Create column
+                </button>
+                <button type="reset" class="btn rounded bg-red">
+                    Cancel
                 </button>
             </div>
         </form>

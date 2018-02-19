@@ -1,6 +1,6 @@
 <template>
     <div class="card" :style="cardBorderStyle">
-        <p class="p-2">{{ story.title }}</p>
+        <p class="p-2 break-words">{{ story.description }}</p>
         <div class="text-grey-darker mt-2 ml-2 flex justify-between items-end p-1">
             <div class="flex items-center">
                 <font-awesome-icon class="mr-1" icon="clock"/>

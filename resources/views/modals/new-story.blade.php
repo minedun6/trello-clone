@@ -4,7 +4,7 @@
             <p class="text-black text-lg p-6">Add new story</p>
             <button class="pr-6" @click="$modal.hide('new-story')">x</button>
         </div>
-        <form class="p-8" @submit.prevent="createNewGroup">
+        <form class="p-8" @submit.prevent="createNewStory">
             <div class="mb-4">
                 <label for="description"
                        class="block uppercase tracking-normal mb-4 font-bold text-xs">Description</label>
@@ -23,7 +23,9 @@
                        v-model="story.due_date"/>
             </div>
             <div class="flex">
-
+                <button type="submit" class="btn rounded"
+                        :class="{'loader': loading, 'cursor-not-allowed' : story.title.length < 1 }" :disabled="loading || story.title.length < 1">Create Story
+                </button>
             </div>
         </form>
     </modal>
