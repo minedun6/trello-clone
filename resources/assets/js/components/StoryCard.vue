@@ -12,7 +12,7 @@
                 </b-btn> -->
             </div>
         </div>
-        <div class="todo-tasklist-item-text"
+        <div class="todo-tasklist-item-text word-break"
              v-html="story.description"></div>
         <div class="todo-tasklist-controls pull-left">
             <span class="todo-tasklist-date">
@@ -67,6 +67,10 @@
     .todo-user-picture {
         min-height: 30px;
         min-width: 30px;
+    }
+
+    .word-break {
+        word-wrap: break-word;
     }
 
 </style>
