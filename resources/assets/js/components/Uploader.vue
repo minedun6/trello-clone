@@ -2,7 +2,7 @@
     <file-input multiple accept='image/*' :uploader="uploader"
                 class="bg-grey-light opacity-50 p-1 hover:opacity-75 text-xs">
         <font-awesome-icon icon="paperclip"/>
-        {{ attachements.length }}
+        {{ attachments.length }}
     </file-input>
 </template>
 
@@ -13,7 +13,7 @@
     export default {
         props: ['story'],
         created() {
-            this.attachements = this.story.media
+            this.attachments = this.story.media
         },
         data() {
             let token = document.head.querySelector('meta[name="csrf-token"]').content
@@ -29,7 +29,7 @@
                     callbacks: {
                         onComplete: function(id, name, response) {
                             if (response.success) {
-                                vm.attachements = response.media
+                                vm.attachments = response.media
                             }
                         }
                     }
@@ -37,7 +37,7 @@
             })
             return {
                 uploader,
-                attachements: []
+                attachments: []
             }
         },
 
@@ -46,7 +46,3 @@
         }
     }
 </script>
-
-<style>
-    @import url("http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
-</style>

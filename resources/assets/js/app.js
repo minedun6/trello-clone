@@ -16,6 +16,7 @@ Vue.component('navigation', require('./components/Navigation.vue'));
 Vue.component('project-menu', require('./components/ProjectMenu.vue'));
 Vue.component('kanban-board', require('./components/KanbanBoard.vue'));
 Vue.component('uploader', require('./components/Uploader.vue'));
+Vue.component('testing-uploader', require('./components/TestingUploader.vue'));
 Vue.component('new-group-modal', require('./components/NewGroupModal'));
 Vue.component('new-story-modal', require('./components/NewStoryModal'));
 

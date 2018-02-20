@@ -5,9 +5,10 @@ Route::get('/', 'PageController@index');
 Route::resource('groups', 'GroupController');
 Route::resource('stories', 'StoryController');
 
-Route::post('/stories/{story}/attachements', 'StoryAttachementsController@store');
+Route::post('/stories/{story}/attachments', 'StoryAttachmentsController@store');
+Route::get('/stories/{story}/attachments', 'StoryAttachmentsController@show');
 
-Route::post('/uploads', 'PageController@upload')->name('uploads');
+Route::get('/uploads', 'PageController@uploads')->name('uploads');
 
 Route::put('/projects/groups/', 'ProjectGroupsController@update');
 Route::put('/groups/{group}/stories', 'GroupStoriesController@update');
