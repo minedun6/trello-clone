@@ -2,12 +2,16 @@
     export default {
         data() {
             return {
+                query: '',
                 selectedMembers: []
             }
         },
         computed: {
             members() {
                 return this.$store.getters.members;
+            },
+            filteredMembers() {
+                return this.members.filter(member => member.name.toLowerCase().includes(this.query.toLowerCase()))
             }
         },
         methods: {
@@ -21,11 +25,9 @@
                     this.selectedMembers.push(member);
                 }
 
-                console.log(this.selectedMembers)
             },
             isMemberChosen(member) {
-                console.log(this.selectedMembers.includes(member));
-                return this.selectedMembers.includes(member) ? 'member-chose' : '';
+                return this.selectedMembers.includes(member) ? 'member-chosen' : '';
             }
         }
     }
