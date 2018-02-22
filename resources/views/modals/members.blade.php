@@ -1,5 +1,5 @@
 <member-picker-modal inline-template>
-    <modal name="members" width="500" height="auto" @opened="loadMembers">
+    <modal name="members" width="500" height="auto" @opened="loadMembers" @before-open="setStory">
         <div class="flex border-b content-between justify-between">
             <p class="text-black text-lg p-6">Select Assignees to this task</p>
             <button class="pr-6" @click="$modal.hide('members')">x</button>
@@ -42,11 +42,11 @@
             </ul>
         </div>
         <div class="flex justify-end bg-grey-lighter py-2 items-center">
-            <a href="#" class="no-underline text-grey-darker text-grey-darkest mr-4"
+            <a href="#" class="no-underline text-grey-darker text-grey-darkest mr-6"
                @click.prevent="$modal.hide('members')">
                 Cancel
             </a>
-            <button type="submit" class="btn py-2 px-3 bg-blue rounded text-white mr-2">
+            <button type="submit" class="btn py-2 px-3 bg-blue rounded text-white mr-4" @click.prevent="affectMembersToStory">
                 Save
             </button>
         </div>

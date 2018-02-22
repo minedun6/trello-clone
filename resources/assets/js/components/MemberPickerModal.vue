@@ -1,4 +1,6 @@
 <script>
+    import axios from 'axios'
+
     export default {
         data() {
             return {
@@ -20,11 +22,23 @@
             },
             toggleChosenMember(key, member) {
                 if (this.selectedMembers.includes(member)) {
-                    this.selectedMembers.splice(key ,1);
+                    this.selectedMembers.splice(key, 1);
                 } else {
                     this.selectedMembers.push(member);
                 }
-
+            },
+            setStory(event) {
+                this.story = event.params.story
+            },
+            affectMembersToStory() {
+                axios.post(`/stories/${this.story.id}/members`, {
+                    members: this.selectedMembers
+                })
+                    .then(res => {
+                        console.log(res)
+                    }).catch(err => {
+                    console.log(err)
+                })
             },
             isMemberChosen(member) {
                 return this.selectedMembers.includes(member) ? 'member-chosen' : '';

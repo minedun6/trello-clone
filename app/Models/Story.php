@@ -36,4 +36,9 @@ class Story extends Model implements HasMedia
     {
         return $this->belongsTo(Group::class);
     }
+
+    public function members()
+    {
+        return $this->belongsToMany(User::class, 'story_user', 'story_id', 'member_id');
+    }
 }

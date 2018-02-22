@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function stories()
+    {
+        return $this->belongsToMany(Story::class, 'story_user', 'member_id');
+    }
 }
