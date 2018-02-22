@@ -22,11 +22,22 @@
   }
 }
 
+.card-widget {
+  @apply .text-center .opacity-50 .text-xs .border-r;
+  &:hover {
+      @apply .opacity-75;
+  }
+}
+
 .sortable-chosen {
   &.sortable-ghost {
     //border: 1px solid red;
     background-color: yellow;
   }
+}
+
+.member-chosen {
+  @apply .bg-blue-lighter .text-blue-dark;
 }
 
 /* Custom styles for scrollbar */
@@ -67,6 +78,10 @@ a {
     @apply .bg-white;
     outline: none;
   }
+}
+
+.search {
+  padding-left: 2rem !important;
 }
 
 [v-cloak] {

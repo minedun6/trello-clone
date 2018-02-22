@@ -1,5 +1,5 @@
 .btn {
-  @apply .bg-grey .text-black .font-normal .text-sm .py-3 .px-6 .font-semibold .opacity-100;
+  @apply .bg-grey .text-black .font-normal .text-sm .font-semibold .opacity-100;
   cursor: pointer;
 
   &.is-green {

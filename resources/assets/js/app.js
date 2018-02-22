@@ -19,6 +19,7 @@ Vue.component('uploader', require('./components/Uploader.vue'));
 Vue.component('testing-uploader', require('./components/TestingUploader.vue'));
 Vue.component('new-group-modal', require('./components/NewGroupModal'));
 Vue.component('new-story-modal', require('./components/NewStoryModal'));
+Vue.component('member-picker-modal', require('./components/MemberPickerModal'));
 
 const app = new Vue({
     el: '#app',

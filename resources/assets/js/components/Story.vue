@@ -1,25 +1,24 @@
 <template>
-    <div class="card" :style="cardBorderStyle">
-        <p class="p-2 break-words">{{ story.description }}</p>
-        <div class="text-grey-darker mt-2 ml-2 flex justify-between items-end p-1">
-            <div class="flex items-center">
-                <font-awesome-icon class="mr-1" icon="clock"/>
-                <time>{{ story.due_date | formatedDueDate }}</time>
-            </div>
-            <img :src="`https://randomuser.me/api/portraits/med/men/${story.id}.jpg`" width="30"
-                    height="30"
-                    class="rounded-full"/>
+    <div class="bg-white rounded mt-2 border-l-2 border-grey shadow font-normal border-red rounded-l">
+        <div class="flex justify-start p-4">
+            <img class="rounded-full mr-1" src="/img/user.svg" width="30" height="30" />
+            <p class="break-words">{{ story.description }}</p>
         </div>
-        <!--<div class="flex justify-end">-->
-            <!--<uploader :story="story"/>-->
-        <!--</div>-->
+        <div class="flex justify-start bg-grey-lightest h-8">
+            <uploader :story="story"/>
+            <member-picker :story="story"/>
+        </div>
     </div>
 </template>
 
 <script>
 import moment from "moment"
+import MemberPicker from './MemberPicker'
 
 export default {
+    components: {
+        MemberPicker
+    },
     props: ['story', 'group'],
     computed: {
         cardBorderStyle() {

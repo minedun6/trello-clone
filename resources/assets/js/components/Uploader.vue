@@ -1,7 +1,7 @@
 <template>
     <file-input multiple accept='image/*' :uploader="uploader"
-                class="bg-grey-light opacity-50 p-1 hover:opacity-75 text-xs">
-        <font-awesome-icon icon="paperclip"/>
+                class="card-widget py-2 px-1">
+        <font-awesome-icon icon="paperclip" size="lg"/>
         {{ attachments.length }}
     </file-input>
 </template>
@@ -24,7 +24,7 @@
                         params: {
                             _token: token
                         },
-                        endpoint: `/stories/${this.story.id}/attachements`
+                        endpoint: `/stories/${this.story.id}/attachments`
                     },
                     callbacks: {
                         onComplete: function(id, name, response) {
@@ -46,3 +46,9 @@
         }
     }
 </script>
+
+<style>
+    .vue-fine-uploader-file-input input[type="file"] {
+        overflow: hidden;
+    }
+</style>

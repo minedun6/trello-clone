@@ -7,6 +7,7 @@ Route::resource('stories', 'StoryController');
 
 Route::post('/stories/{story}/attachments', 'StoryAttachmentsController@store');
 Route::get('/stories/{story}/attachments', 'StoryAttachmentsController@show');
+Route::get('/stories/{story}/members', 'StoryMembersController@index');
 
 Route::get('/uploads', 'PageController@uploads')->name('uploads');
 

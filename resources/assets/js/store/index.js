@@ -11,11 +11,24 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         groups: [],
+        members: [],
         newGroup: {...defaultGroup},
         newStory: {...defaultStory},
         loading: false,
     },
     actions: {
+        fetchMembers(context) {
+            context.commit('enableLoading', true)
+            axios.get('/stories/1/members').then(res => {
+                if (res.data.success) {
+                    context.commit('setMembers', res.data.members)
+                    context.commit('enableLoading', false)
+                }
+            }).catch(err => {
+                console.log(err)
+                context.commit('enableLoading', false)
+            })
+        },
         fetchData(context) {
             context.commit('enableLoading', true)
 
@@ -106,6 +119,9 @@ export default new Vuex.Store({
         }
     },
     mutations: {
+        setMembers(state, members) {
+            state.members = members;
+        },
         setGroups(state, groups) {
             state.groups = groups
         },
@@ -136,6 +152,9 @@ export default new Vuex.Store({
         }
     },
     getters: {
+        members(state, getters) {
+            return state.members;
+        },
         groups(state, getters) {
             return state.groups
         },
