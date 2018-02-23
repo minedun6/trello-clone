@@ -32,9 +32,7 @@
                 this.story = event.params.story
             },
             affectMembersToStory() {
-                axios.post(`/stories/${this.story.id}/members`, {
-                        members: this.selectedMembers
-                    })
+                axios.post(`/stories/${this.story.id}/members`, {members: this.selectedMembers})
                     .then(res => {
                         console.log(res)
                     }).catch(err => {
