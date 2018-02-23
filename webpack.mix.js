@@ -8,5 +8,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .purgeCss()
     .options({
         processCssUrls: false,
-        postCss: [ tailwindcss('./tailwind.js') ],
+        postCss: [ 
+            tailwindcss('./tailwind.js'),
+            require('autoprefixer') 
+        ],
 });

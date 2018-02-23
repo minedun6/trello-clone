@@ -6,5 +6,6 @@ export const defaultStory = {
     title: '',
     description: '',
     due_date: '',
-    group_id: ''
+    group_id: '',
+    tags: []
 };

@@ -41,14 +41,17 @@ class StoryController extends Controller
      */
     public function store(Request $request)
     {
-        $story = Group::find($request->input('story.group_id'))->stories()->create([
+        $story = Story::create([
+            'group_id' => $request->input('story.group_id'),
             'description' => $request->input('story.title'),
             'due_date' => Carbon::parse($request->input('story.due_date'))
         ]);
 
+        $story->attachTags($request->input('story.tags'));
+
         return response()->json([
             'success' => true,
-            'story' => $story
+            'story' => $story->fresh()
         ]);
     }
 

@@ -5,7 +5,7 @@
         data() {
             return {
                 story: {...this.$store.getters.newStory},
-                loading: false
+                loading: false,
             }
         },
         methods: {

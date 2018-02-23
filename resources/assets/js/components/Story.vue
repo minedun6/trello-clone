@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded mt-2 border-l-2 border-grey shadow font-normal border-red rounded-l">
+    <div class="card">
         <div class="flex justify-start p-4">
             <img class="rounded-full mr-1" src="/img/user.svg" width="30" height="30" />
             <p class="break-words">{{ story.description }}</p>

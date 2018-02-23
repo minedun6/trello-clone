@@ -6,18 +6,20 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use \Spatie\Tags\HasTags;
 
 class Story extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use HasMediaTrait,
+        HasTags;
 
     protected $guarded = [];
 
     protected $dates = ['due_date'];
 
-    protected $with = ['media'];
+    protected $with = ['media', 'tags'];
 
-    protected $withCount = ['media'];
+    protected $withCount = ['media', 'tags'];
 
     public static function boot()
     {
@@ -29,7 +31,6 @@ class Story extends Model implements HasMedia
         static::addGlobalScope('orderedStories', function (Builder $builder) {
             $builder->orderBy('rank', 'asc');
         });
-
     }
 
     public function group()

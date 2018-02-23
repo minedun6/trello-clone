@@ -21,6 +21,9 @@ Vue.component('new-group-modal', require('./components/NewGroupModal'));
 Vue.component('new-story-modal', require('./components/NewStoryModal'));
 Vue.component('member-picker-modal', require('./components/MemberPickerModal'));
 
+Vue.component('tags-input', require('./components/TagsInput.vue'));
+Vue.component('inline-tags-input', require('./components/InlineTagsInput.vue'));
+
 const app = new Vue({
     el: '#app',
     store

@@ -22,8 +22,13 @@
                        placeholder="Pick a date"
                        v-model="story.due_date"/>
             </div>
+            <div class="mb-4">
+                <label for="due_date"
+                    class="block uppercase tracking-normal mb-4 font-bold text-xs">Tags</label>
+                <inline-tags-input v-model="story.tags"></inline-tags-input>
+            </div>
             <div class="flex">
-                <button type="submit" class="btn rounded"
+                <button type="submit" class="btn p-2 rounded"
                         :class="{'loader': loading, 'cursor-not-allowed' : story.title.length < 1 }" :disabled="loading || story.title.length < 1">Create Story
                 </button>
             </div>

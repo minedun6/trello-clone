@@ -16,7 +16,7 @@
 }
 
 .card {
-  @apply .bg-white .rounded .mt-2 .border-b .border-grey .shadow .font-normal;
+  @apply .bg-white .rounded .mt-2 .border-l-2 .border-grey .shadow .font-normal .border-red .rounded-l;
   &:hover {
     @apply .bg-grey-lighter;
   }
@@ -98,4 +98,42 @@ a {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+
+.tags-input {
+  @apply .border .border-grey-dark .p-2 .rounded;
+}
+
+.tags-input-tag {
+  @apply .inline-flex .leading-none .items-center .text-sm .bg-blue-lighter .text-blue-darker .rounded .select-none .p-1 .mr-2 .mb-1;
+
+  &:last-of-type {
+    @apply .mr-0;
+  }
+}
+
+.tags-input-remove {
+  @apply .text-blue-dark .text-lg .leading-none;
+
+  &:first-child {
+    @apply .mr-1;
+  }
+
+  &:last-child {
+    @apply .ml-1;
+  }
+
+  &:focus {
+    @apply .outline-0;
+  }
+}
+
+.tags-input-text {
+  @apply .flex-1 .outline-0 .py-1 .ml-2 .mb-1;
+  min-width: 10rem;
+}
+
+.outline-0 {
+  outline: 0;
 }
