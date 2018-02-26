@@ -17,7 +17,10 @@
             </div>
         </div>
         <div class="card-list">
-            <vue-draggable :options="draggableOptions.stories" :list="group.stories" class="h-full">
+            <vue-draggable :options="draggableOptions.stories"
+                           :list="group.stories"
+                           :move="log"
+                           class="h-full">
                 <story v-for="story in group.stories" :key="story.id" :story="story" :group="group"/>
             </vue-draggable>
         </div>
@@ -39,6 +42,13 @@
         data() {
             return {
                 draggableOptions
+            }
+        },
+        methods: {
+            log(evt, originalEvent) {
+                let {x, y} = originalEvent
+                this.$eventHub.$emit('start-drag', ({x, y}))
+                console.log(originalEvent);
             }
         }
     }

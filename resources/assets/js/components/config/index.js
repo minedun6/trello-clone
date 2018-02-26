@@ -6,7 +6,7 @@ export const draggableOptions = {
         fallbackOnBody: false,
         fallbackTolerance: 0,
         scroll: true,
-        scrollSpeed: 10
+        scrollSpeed: 20
     },
     stories: {
         group: "stories",
@@ -15,6 +15,6 @@ export const draggableOptions = {
         fallbackOnBody: false,
         fallbackTolerance: 0,
         scroll: true,
-        scrollSpeed: 10
+        scrollSpeed: 20
     }
 };

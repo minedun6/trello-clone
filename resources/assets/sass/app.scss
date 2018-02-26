@@ -4,6 +4,14 @@
 
 @tailwind utilities;
 
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  @apply .text-grey-darkest;
+}
+
 /*-------------------------------------*\
 -------- Tailwind components ------------
 \*-------------------------------------*/

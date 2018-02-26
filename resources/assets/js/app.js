@@ -12,17 +12,20 @@ Vue.use(VModal);
 fontawesome.library.add(solid, faSpinner);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-Vue.component('navigation', require('./components/Navigation.vue'));
-Vue.component('project-menu', require('./components/ProjectMenu.vue'));
-Vue.component('kanban-board', require('./components/KanbanBoard.vue'));
-Vue.component('uploader', require('./components/Uploader.vue'));
-Vue.component('testing-uploader', require('./components/TestingUploader.vue'));
+Vue.component('navigation', require('./components/Navigation'));
+Vue.component('project-menu', require('./components/ProjectMenu'));
+Vue.component('kanban-board', require('./components/KanbanBoard'));
+Vue.component('uploader', require('./components/Uploader'));
+Vue.component('testing-uploader', require('./components/TestingUploader'));
 Vue.component('new-group-modal', require('./components/NewGroupModal'));
 Vue.component('new-story-modal', require('./components/NewStoryModal'));
 Vue.component('member-picker-modal', require('./components/MemberPickerModal'));
+Vue.component('login', require('./components/Login'));
 
-Vue.component('tags-input', require('./components/TagsInput.vue'));
-Vue.component('inline-tags-input', require('./components/InlineTagsInput.vue'));
+Vue.component('tags-input', require('./components/TagsInput'));
+Vue.component('inline-tags-input', require('./components/InlineTagsInput'));
+
+Vue.prototype.$eventHub = new Vue();
 
 const app = new Vue({
     el: '#app',

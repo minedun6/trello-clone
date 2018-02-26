@@ -6,6 +6,8 @@
         <project-menu></project-menu>
         <kanban-board></kanban-board>
 
+        {{-- <login></login> --}}
+
         @include('modals.all')
 
     </div>

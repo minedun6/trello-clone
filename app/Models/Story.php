@@ -17,9 +17,9 @@ class Story extends Model implements HasMedia
 
     protected $dates = ['due_date'];
 
-    protected $with = ['media', 'tags'];
+    protected $with = ['media', 'tags', 'members'];
 
-    protected $withCount = ['media', 'tags'];
+    protected $withCount = ['media', 'tags', 'members'];
 
     public static function boot()
     {
