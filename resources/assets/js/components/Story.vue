@@ -16,17 +16,23 @@
             </p>
         </div>
         <div class="flex pt-2 pl-2 justify-between">
-            <div class="flex">
+            <div class="flex items-end">
                 <img v-for="(member, i) in story.members.slice(0, 2)"
                 :key="i"
                 :src="`https://randomuser.me/api/portraits/med/men/${member.id}.jpg`"
-                class="relative w-7 h-7 rounded-full border-2 border-white border-solid inline-block box-shadow -ml-2"/>
+                class="relative w-7 h-7 rounded-full border-2 border-white border-solid inline-block shadow-inner -ml-2"/>
                 <div class="bg-grey-light w-7 h-7 relative rounded-full border-2 border-white border-solid inline-block box-shadow -ml-2 cursor-pointer"
                     @click.prevent="$modal.show('members', {story})">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
                         <path d="M17 11a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-2 0v-4H7a1 1 0 0 1 0-2h4V7a1 1 0 0 1 2 0v4h4z"></path>
                     </svg>
                 </div>
+            </div>
+            <div class="flex items-center justify-between mt-3">
+                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'comment-alt']"/>
+                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'users']"/>
+                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'check-square']"/>
+                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'edit']" />
             </div>
         </div>
     </div>

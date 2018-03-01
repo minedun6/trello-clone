@@ -37,7 +37,7 @@
                     @click="toggleChosenMember(key, member)"
                     :key="key">
                     <p>@{{ member.name }}</p>
-                    <img class="rounded-full mr-1" src="/img/user.svg" width="30" height="30"/>
+                    <img class="rounded-full mr-1 border" src="/img/user.svg" width="30" height="30"/>
                 </li>
             </ul>
         </div>

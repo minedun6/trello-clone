@@ -1,6 +1,6 @@
 <script>
     import axios from 'axios'
-    
+
     export default {
         data() {
             return {
@@ -36,19 +36,24 @@
                     .then(res => {
                         console.log(res)
                     }).catch(err => {
-                        console.log(err)
-                    })
+                    console.log(err)
+                })
             },
             isMemberChosen(member) {
                 return this.selectedMembers.includes(member) ? 'member-chosen' : '';
             }
         },
         filters: {
-    
+            highlight: function (words) {
+                var iQuery = new RegExp(this.query, "ig");
+                return words.toString().replace(iQuery, function (matchedTxt, a, b) {
+                    return ('<mark>' + matchedTxt + '</mark>');
+                });
+            }
         }
     }
 </script>
 
 <style scoped>
-    
+
 </style>
