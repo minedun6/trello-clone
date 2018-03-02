@@ -2,11 +2,9 @@
     <div class="bg-white rounded shadow px-3 py-2 mb-2">
         <div class="flex mb-1 text-grey-darker">
             <span class="h-4 w-4 mr-1">
-                <svg class="text-grey-darker fill-current opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M17 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h2V3a1 1 0 1 1 2 0v1h6V3a1 1 0 0 1 2 0v1zm-2 2H9v1a1 1 0 1 1-2 0V6H5v4h14V6h-2v1a1 1 0 0 1-2 0V6zm4 6H5v8h14v-8z"></path>
-                </svg>
+                <font-awesome-icon class="text-grey-darker fill-current opacity-50" :icon="['far', 'calendar']" />
             </span>
-            <span class="opacity-50">
+            <span class="opacity-50 text-xs">
                 {{ story.due_date | formatedDueDate }}
             </span>
         </div>
@@ -29,10 +27,9 @@
                 </div>
             </div>
             <div class="flex items-center justify-between mt-3">
-                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'comment-alt']"/>
-                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'users']"/>
+                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'comments']"/>
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'check-square']"/>
-                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'edit']" />
+                <font-awesome-icon class="w-4 h-4 " size="lg" :icon="['far', 'hdd']" />
             </div>
         </div>
     </div>
