@@ -29,10 +29,11 @@
                 </div>
             </div>
             <div class="flex items-center justify-between mt-3">
-                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'comment-alt']"/>
-                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'users']"/>
+                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'file']"/>
+                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'comments']"/>
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'check-square']"/>
-                <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'edit']" />
+                <!--<font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'hdd']" />-->
+                <media-uploader :story="story"></media-uploader>
             </div>
         </div>
     </div>
@@ -41,10 +42,12 @@
 <script>
     import moment from "moment"
     import MemberPicker from './MemberPicker'
+    import MediaUploader from './Uploader'
 
     export default {
         components: {
-            MemberPicker
+            MemberPicker,
+            MediaUploader
         },
         props: ['story', 'group'],
         computed: {
