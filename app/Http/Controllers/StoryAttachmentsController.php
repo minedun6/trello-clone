@@ -16,7 +16,7 @@ class StoryAttachmentsController extends Controller
     {
         $file = request()->file('qqfile');
 
-        $story->addMedia($file)->toMediaCollection("stories-{$story->id}", 'local');
+        $story->addMedia($file)->toMediaCollection("stories-{$story->id}", 's3');
 
         return response()->json([
             'success' => true,
