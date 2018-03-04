@@ -1,8 +1,8 @@
 <template>
     <div class="bg-white rounded shadow px-3 py-2 mb-2">
-        <div class="flex mb-1 text-grey-darker">
+        <div class="flex mb-2 text-grey-darker items-center">
             <span class="h-4 w-4 mr-1">
-                <font-awesome-icon class="text-grey-darker fill-current opacity-50" :icon="['far', 'calendar']" />
+                <font-awesome-icon class="text-grey-darker fill-current opacity-50" :icon="['far', 'calendar-alt']" />
             </span>
             <span class="opacity-50 text-xs">
                 {{ story.due_date | formatedDueDate }}
@@ -27,12 +27,15 @@
                 </div>
             </div>
             <div class="flex items-center justify-between mt-3">
-
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'file']"/>
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'comments']"/>
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'check-square']"/>
+                <font-awesome-layers class="fa-lg opacity-50">
+                    <font-awesome-icon :icon="['far', 'envelope']" />
+                    <span class="fa-layers-counter">.</span>
+                </font-awesome-layers>
                 <!--<font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'hdd']" />-->
-                <media-uploader :story="story"></media-uploader>
+                <!--<media-uploader :story="story"/>-->
             </div>
         </div>
     </div>

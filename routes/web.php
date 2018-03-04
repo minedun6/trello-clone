@@ -11,6 +11,7 @@ Route::get('/stories/{story}/members', 'StoryMembersController@index');
 Route::post('/stories/{story}/members', 'StoryMembersController@store');
 
 Route::get('/uploads', 'PageController@uploads')->name('uploads');
+Route::post('aws/signature', 'AwsController');
 
 Route::put('/projects/groups/', 'ProjectGroupsController@update');
 Route::put('/groups/{group}/stories', 'GroupStoriesController@update');

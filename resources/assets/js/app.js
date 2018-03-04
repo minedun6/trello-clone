@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
+import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 import fontawesome from '@fortawesome/fontawesome';
 import regular from '@fortawesome/fontawesome-free-regular';
 import solid from '@fortawesome/fontawesome-free-solid';
@@ -13,6 +13,7 @@ Vue.use(VModal);
 fontawesome.library.add(regular, solid, faSpinner);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component('font-awesome-layers', FontAwesomeLayers);
 Vue.component('navigation', require('./components/Navigation'));
 Vue.component('project-menu', require('./components/ProjectMenu'));
 Vue.component('kanban-board', require('./components/KanbanBoard'));
