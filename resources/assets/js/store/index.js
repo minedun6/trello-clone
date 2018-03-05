@@ -19,7 +19,7 @@ export default new Vuex.Store({
     actions: {
         fetchMembers(context) {
             context.commit('enableLoading', true)
-            axios.get('/stories/members').then(res => {
+            axios.get('/stories/1/members').then(res => {
                 if (res.data.success) {
                     context.commit('setMembers', res.data.members)
                     context.commit('enableLoading', false)

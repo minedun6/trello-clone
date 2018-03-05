@@ -19,5 +19,4 @@ class StoryMembersController extends Controller
     {
         return $story->members()->sync(collect(request()->input('members'))->pluck('id'));
     }
-
 }

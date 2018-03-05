@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\TrustProxies;
-use Barryvdh\Cors\HandleCors;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode;
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
@@ -25,7 +24,6 @@ class Kernel extends HttpKernel
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
         TrustProxies::class,
-        HandleCors::class,
     ];
 
     /**
