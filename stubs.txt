@@ -1,0 +1,64 @@
+// basic flow to upload to s3 using fineuploader
+
+import FineUploaderS3 from 'fine-uploader-wrappers/s3'
+
+const uploader = new FineUploaderS3({
+    options: {
+        request: {
+            endpoint: "",
+            accessKey: "",
+            params: {}
+        },
+        debug: true,
+        multiple: false,
+        signature: {
+            endpoint: "/aws/signature?_token=" + token,
+            version: 4
+        },
+        uploadSuccess: {
+            params: {
+                _token: token
+            },
+            endpoint: .
+        },
+        iframeSupport: {
+            localBlankPagePath: "success.html"
+        },
+        chunking: {
+            enabled: true,
+            concurrent: {
+                enabled: true
+            }
+        },
+        resume: {
+            enabled: true
+        },
+        deleteFile: {
+            enabled: false
+        },
+        objectProperties: {
+            region: "us-west-2",
+        },
+        validation: {
+            allowedExtensions:[],
+            acceptFiles: [],
+            sizeLimit: 500000000,
+            stopOnFirstInvalidFile: false,
+            autoUpload: true
+        },
+    },
+    callbacks: {
+        onComplete: function (id, name, response) {
+            if (response.success) {
+                vm.attachments = response.media
+            }
+        },
+        onProgress: function (event, id, name, uploadedBytes, totalBytes) {
+            console.log(...event);
+            console.log(id)
+            console.log(name)
+            console.log(uploadedBytes)
+            console.log(totalBytes)
+        }
+    }
+});

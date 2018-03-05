@@ -24,13 +24,6 @@ class AwsController extends Controller
     //the method your route point to
     public function __invoke()
     {
-        if (isset($this->request->success)) {
-            //after successful upload
-            //the request will contain the bucket and key at this point
-            return $this->awsService->verifyFileInS3($this->awsService->shouldIncludeThumbnail());
-        } else {
-            //sign request handling
-            return $this->awsService->signRequest();
-        }
+        return $this->awsService->awsSign(request());
     }
 }

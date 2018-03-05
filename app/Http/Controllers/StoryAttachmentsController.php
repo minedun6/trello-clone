@@ -14,7 +14,7 @@ class StoryAttachmentsController extends Controller
      */
     public function store(Story $story)
     {
-        $file = request()->file('qqfile');
+        $file = request()->input('name');
 
         $story->addMedia($file)->toMediaCollection("stories-{$story->id}", 's3');
 

@@ -22,7 +22,7 @@ return [
     'ses' => [
         'key' => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
-        'region' => 'us-east-1',
+        'region' => 'us-west-2',
     ],
 
     'sparkpost' => [
@@ -42,7 +42,7 @@ return [
         'expectedBucketName' => env('S3_BUCKET_NAME'),
         'expectedHostName' => env('S3_HOST_NAME'),
         'expectedMaxSize' => env('S3_MAX_FILE_SIZE',null),
-        'expectedBucketRegion' => env('AWS_DEFAULT_REGION','us-east-1'),
+        'expectedBucketRegion' => env('AWS_DEFAULT_REGION','us-west-2'),
         'expectedBucketVersion' => env('S3_BUCKET_VERSION','2006-03-01'),
     ]
 

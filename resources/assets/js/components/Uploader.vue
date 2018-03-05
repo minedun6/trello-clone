@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import FineUploaderS3 from 'fine-uploader-wrappers/s3'
+    import FineUploaderTraditional from 'fine-uploader-wrappers'
     import FileInput from 'vue-fineuploader/file-input'
 
     export default {
@@ -17,36 +17,11 @@
         data() {
             let token = document.head.querySelector('meta[name="csrf-token"]').content;
             let vm = this;
-            const uploader = new FineUploaderS3({
+            const uploader = new FineUploaderTraditional({
                 options: {
                     request: {
-                        endpoint: "https://trello-clone-v2.s3.amazonaws.com",
-                        accessKey: "AKIAJFGV22ZSZP45WLBQ"
-                    },
-                    signature: {
-                        customHeaders: {
-                            csrfToken: token
-                        },
-                        endpoint: "/aws/signature",
-                        version: 4
-                    },
-                    uploadSuccess: {
-                        params: {
-                            _token: token
-                        },
-                        endpoint: `/stories/${this.story.id}/attachments`
-                    },
-                    iframeSupport: {
-                        localBlankPagePath: "success.html"
-                    },
-                    chunking: {
-                        enabled: true,
-                        concurrent: {
-                            enabled: true
-                        }
-                    },
-                    resume: {
-                        enabled: true
+                        params: { _token: token },
+                        endpoint: `/stories/${this.story.id}/attachements`
                     },
                 },
                 callbacks: {
@@ -54,6 +29,13 @@
                         if (response.success) {
                             vm.attachments = response.media
                         }
+                    },
+                    onProgress: function (event, id, name, uploadedBytes, totalBytes) {
+                        console.log(...event);
+                        console.log(id)
+                        console.log(name)
+                        console.log(uploadedBytes)
+                        console.log(totalBytes)
                     }
                 }
             });

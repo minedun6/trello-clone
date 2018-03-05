@@ -32,6 +32,7 @@
                 this.story = event.params.story
             },
             affectMembersToStory() {
+                // replace with store method
                 axios.post(`/stories/${this.story.id}/members`, {members: this.selectedMembers})
                     .then(res => {
                         console.log(res)
