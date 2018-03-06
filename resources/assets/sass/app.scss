@@ -83,8 +83,14 @@ a {
 .form-control {
   @apply .border .border-grey-light .bg-grey-lighter .rounded .p-2 .leading-normal .shadow-inner;
   &:focus {
-    @apply .bg-white;
-    outline: none;
+    @apply .bg-grey-light .outline-0;
+  }
+}
+
+.search-input {
+  @apply .bg-blue-light .rounded .p-2;
+  &:focus {
+    @apply .bg-white .outline-0;
   }
 }
 

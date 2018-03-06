@@ -19,8 +19,8 @@
         <div class="card-list">
             <vue-draggable :options="draggableOptions.stories"
                            :list="group.stories"
-                           :move="log"
-                           class="h-full">
+                           class="h-full"
+                           @change="syncStoriesOrder(group)">
                 <story v-for="story in group.stories" :key="story.id" :story="story" :group="group"/>
             </vue-draggable>
         </div>
@@ -45,10 +45,8 @@
             }
         },
         methods: {
-            log(evt, originalEvent) {
-                let {x, y} = originalEvent
-                this.$eventHub.$emit('start-drag', ({x, y}))
-                console.log(originalEvent);
+            syncStoriesOrder(group) {
+                this.$store.dispatch('setGroupOrder', {group})
             }
         }
     }

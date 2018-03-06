@@ -1,10 +1,10 @@
 <member-picker-modal inline-template>
-    <modal name="members" width="500" height="auto" @opened="loadMembers" @before-open="setStory">
+    <modal name="members" width="500" height="auto" @before-open="handleBeforeOpenModal" @opened="handleAfterOpenModal">
         <div class="flex border-b content-between justify-between">
             <p class="text-black text-lg p-6">Select Assignees to this task</p>
             <button class="pr-6" @click="$modal.hide('members')">x</button>
         </div>
-        <form class="p-4">
+        <form class="py-3 px-4">
             <div class="flex flex-col">
                 <div class="relative my-2">
                     <input type="text" class="form-control search w-full pl-3" v-model="query"
@@ -29,9 +29,9 @@
                     }}</em>
             </div>
         </form>
-        <div class="p-1 m-2 overflow-y-scroll">
+        <div class="px-1 mx-2 mb-2 overflow-y-scroll">
             <ul class="list-reset h-48">
-                <li v-for="(member, key) in filteredMembers"
+                <li v-for="(member, key) in members"
                     class="flex p-2 justify-between items-center cursor-pointer rounded mb-1"
                     :class="isMemberChosen(member)"
                     @click="toggleChosenMember(key, member)"

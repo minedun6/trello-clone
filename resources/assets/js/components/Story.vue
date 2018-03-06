@@ -27,14 +27,12 @@
                 </div>
             </div>
             <div class="flex items-center justify-between mt-3">
+                <!-- another component-->
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'file']"/>
+                <!-- comments component-->
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'comments']"/>
+                <!-- checklist component-->
                 <font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'check-square']"/>
-                <!--<font-awesome-layers class="fa-lg opacity-50">
-                    <font-awesome-icon :icon="['far', 'envelope']" />
-                    <span class="fa-layers-counter">.</span>
-                </font-awesome-layers>-->
-                <!--<font-awesome-icon class="w-4 h-4 mr-2" size="lg" :icon="['far', 'hdd']" />-->
                 <media-uploader :story="story"/>
             </div>
         </div>

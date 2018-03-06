@@ -1,5 +1,6 @@
 <script>
     import axios from 'axios'
+    import _ from 'underscore'
 
     export default {
         data() {
@@ -18,30 +19,42 @@
             }
         },
         methods: {
-            loadMembers() {
-                this.$store.dispatch('fetchMembers')
-            },
             toggleChosenMember(key, member) {
-                if (this.selectedMembers.includes(member)) {
-                    this.selectedMembers.splice(key, 1);
+                if (_.pluck(this.selectedMembers, 'id').includes(member.id)) {
+                    let index = _.pluck(this.selectedMembers, 'id').indexOf(member.id);
+                    this.selectedMembers.splice(index, 1);
                 } else {
                     this.selectedMembers.push(member);
                 }
             },
-            setStory(event) {
+            handleBeforeOpenModal(event) {
+                this.selectedMembers = []
+                this.$store.dispatch('enableLoading', true)
+
                 this.story = event.params.story
+                this.story.members.forEach((m) => {
+                    this.selectedMembers.push(m)
+                })
+            },
+            handleAfterOpenModal(event) {
+                setTimeout(() => {
+                    this.$store.dispatch('enableLoading', false)
+                }, 500)
             },
             affectMembersToStory() {
                 // replace with store method
+                // this.$store.dispatch('affectMembersToStory', )
                 axios.post(`/stories/${this.story.id}/members`, {members: this.selectedMembers})
                     .then(res => {
-                        console.log(res)
+                        if (res.data.success) {
+                            this.$modal.hide('members')
+                        }
                     }).catch(err => {
                     console.log(err)
                 })
             },
             isMemberChosen(member) {
-                return this.selectedMembers.includes(member) ? 'member-chosen' : '';
+                return _.pluck(this.selectedMembers, 'id').includes(member.id) ? 'member-chosen' : '';
             }
         },
         filters: {

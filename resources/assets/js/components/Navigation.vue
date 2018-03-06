@@ -8,7 +8,7 @@
                 </svg>
                 Pannels
             </button>
-            <input type="text" class="bg-blue-light rounded p-2"/>
+            <input type="text" class="search-input"/>
         </div>
         <div class="mx-0">
             <a href="#" class="no-underline">

@@ -14,7 +14,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "cross-env": "^5.1",
     "laravel-mix": "^1.0",
-    "tailwindcss": "^0.4.2",
+    "tailwindcss": "^0.4.3",
     "vue": "^2.1.10"
   },
   "dependencies": {
@@ -22,11 +22,11 @@
     "@fortawesome/fontawesome-free-regular": "^5.0.8",
     "@fortawesome/fontawesome-free-solid": "^5.0.8",
     "@fortawesome/vue-fontawesome": "0.0.22",
-    "fine-uploader-wrappers": "^1.0.1",
+    "fine-uploader-wrappers": "^1.1.0",
     "jquery-ui": "^1.12.1",
     "laravel-mix-purgecss": "^1.0.5",
-    "lodash": "^4.17.5",
-    "moment": "^2.20.1",
+    "moment": "^2.21.0",
+    "underscore": "^1.8.3",
     "vue-fineuploader": "^2.0.0-rc.9",
     "vue-js-modal": "^1.3.12",
     "vue-select": "^2.4.0",

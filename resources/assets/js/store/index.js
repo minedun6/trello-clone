@@ -17,24 +17,16 @@ export default new Vuex.Store({
         loading: false,
     },
     actions: {
-        fetchMembers(context) {
-            context.commit('enableLoading', true)
-            axios.get('/stories/1/members').then(res => {
-                if (res.data.success) {
-                    context.commit('setMembers', res.data.members)
-                    context.commit('enableLoading', false)
-                }
-            }).catch(err => {
-                console.log(err)
-                context.commit('enableLoading', false)
-            })
+        enableLoading(context, flag) {
+            context.commit('enableLoading', flag)
         },
         fetchData(context) {
             context.commit('enableLoading', true)
 
-            axios.get('/stories').then(res => {
+            axios.get('/api/data').then(res => {
                 if (res.data.success) {
                     context.commit('setGroups', res.data.groups)
+                    context.commit('setMembers', res.data.members)
                     context.commit('enableLoading', false)
                 }
             }).catch(err => {
