@@ -1,6 +1,5 @@
 import Vue from 'vue';
-import VueDragula from 'vue-dragula'
-
+import { Vue2Dragula } from 'vue2-dragula'
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 import fontawesome from '@fortawesome/fontawesome';
 import regular from '@fortawesome/fontawesome-free-regular';
@@ -11,8 +10,11 @@ import VModal from 'vue-js-modal';
 import store from './store';
 
 Vue.use(VModal);
-Vue.use(VueDragula);
-
+Vue.use(Vue2Dragula, {
+    logging: {
+        service: false // to only log methods in service (DragulaService)
+    }
+});
 fontawesome.library.add(regular, solid, faSpinner);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);

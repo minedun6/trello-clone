@@ -18,7 +18,7 @@
         </div>
         <div class="card-list">
             <div v-dragula="group.stories"
-                 drake="quiz"
+                 drake="items"
                  class="h-full">
                 <story v-for="story in group.stories" :key="story.id" :story="story" :group="group"/>
             </div>
@@ -42,6 +42,13 @@
             return {
                 draggableOptions
             }
+        },
+        created() {
+            const $service = this.$dragula.$service
+            $service.eventBus.$on('drop', (args) => {
+                console.log(args)
+            })
+
         },
         methods: {
             syncStoriesOrder(group) {
