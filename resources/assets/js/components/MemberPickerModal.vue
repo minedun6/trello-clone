@@ -48,6 +48,7 @@
                     .then(res => {
                         if (res.data.success) {
                             this.$modal.hide('members')
+                            this.story.members = res.data.members
                         }
                     }).catch(err => {
                     console.log(err)
