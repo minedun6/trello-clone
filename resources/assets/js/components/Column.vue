@@ -17,12 +17,11 @@
             </div>
         </div>
         <div class="card-list">
-            <vue-draggable :options="draggableOptions.stories"
-                           :list="group.stories"
-                           class="h-full"
-                           @change="syncStoriesOrder(group)">
+            <div v-dragula="group.stories"
+                 drake="quiz"
+                 class="h-full">
                 <story v-for="story in group.stories" :key="story.id" :story="story" :group="group"/>
-            </vue-draggable>
+            </div>
         </div>
         <new-story :group="group"/>
     </div>

@@ -1,4 +1,6 @@
 import Vue from 'vue';
+import VueDragula from 'vue-dragula'
+
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 import fontawesome from '@fortawesome/fontawesome';
 import regular from '@fortawesome/fontawesome-free-regular';
@@ -9,6 +11,7 @@ import VModal from 'vue-js-modal';
 import store from './store';
 
 Vue.use(VModal);
+Vue.use(VueDragula);
 
 fontawesome.library.add(regular, solid, faSpinner);
 
