@@ -56,11 +56,9 @@
             },
             isMemberChosen(member) {
                 return _.pluck(this.selectedMembers, 'id').includes(member.id) ? 'member-chosen' : '';
-            }
-        },
-        filters: {
+            },
             highlight: function (words) {
-                var iQuery = new RegExp(this.query, "ig");
+                let iQuery = new RegExp(this.query, "ig");
                 return words.toString().replace(iQuery, function (matchedTxt, a, b) {
                     return ('<mark>' + matchedTxt + '</mark>');
                 });
@@ -70,5 +68,5 @@
 </script>
 
 <style scoped>
-
+    .highlighted { color: red }
 </style>

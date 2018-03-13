@@ -45,7 +45,7 @@
         },
         created() {
             const $service = this.$dragula.$service
-            $service.eventBus.$on('drop', (args) => {
+            $service.eventBus.$on('dropModel', (args) => {
                 console.log(args)
             })
 

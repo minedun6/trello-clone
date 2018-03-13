@@ -32,6 +32,29 @@ Vue.component('login', require('./components/Login'));
 Vue.component('tags-input', require('./components/TagsInput'));
 Vue.component('inline-tags-input', require('./components/InlineTagsInput'));
 
+function debounce(fn, delay = 300) {
+    let timeoutID = null;
+
+    return function () {
+        clearTimeout(timeoutID);
+
+        let args = arguments;
+        let that = this;
+
+        timeoutID = setTimeout(function () {
+            fn.apply(that, args);
+        }, delay);
+    }
+}
+
+Vue.directive('debounce', (el, binding) => {
+    if (binding.value !== binding.oldValue) {
+        el.oninput = debounce(ev => {
+            el.dispatchEvent(new Event('change'));
+        }, parseInt(binding.value) || 300);
+    }
+});
+
 Vue.prototype.$eventHub = new Vue();
 
 const app = new Vue({
