@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.52.25",
+            "version": "3.52.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c1ce16adeeb9a47270f6ba8fb7aef5e1d62fa7d0"
+                "reference": "3aefee935e611e1ce959f0288cd160dc81d233a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c1ce16adeeb9a47270f6ba8fb7aef5e1d62fa7d0",
-                "reference": "c1ce16adeeb9a47270f6ba8fb7aef5e1d62fa7d0",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3aefee935e611e1ce959f0288cd160dc81d233a0",
+                "reference": "3aefee935e611e1ce959f0288cd160dc81d233a0",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-03-13T19:14:00+00:00"
+            "time": "2018-03-14T20:20:20+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -794,12 +794,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "64d6b9a08b8f95ad5fa61551f2f69e530d893939"
+                "reference": "669b118bba3e8feb4d9b97a50a88602bde471464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/64d6b9a08b8f95ad5fa61551f2f69e530d893939",
-                "reference": "64d6b9a08b8f95ad5fa61551f2f69e530d893939",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/669b118bba3e8feb4d9b97a50a88602bde471464",
+                "reference": "669b118bba3e8feb4d9b97a50a88602bde471464",
                 "shasum": ""
             },
             "require": {
@@ -924,7 +924,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-14T13:15:18+00:00"
+            "time": "2018-03-14T21:05:11+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3352,12 +3352,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/facebook/php-webdriver.git",
-                "reference": "9491a715fb9869a1213c4175aa4ce47b059a5edf"
+                "reference": "4a3209c5122986da3890704cf4c147a850847ae8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/9491a715fb9869a1213c4175aa4ce47b059a5edf",
-                "reference": "9491a715fb9869a1213c4175aa4ce47b059a5edf",
+                "url": "https://api.github.com/repos/facebook/php-webdriver/zipball/4a3209c5122986da3890704cf4c147a850847ae8",
+                "reference": "4a3209c5122986da3890704cf4c147a850847ae8",
                 "shasum": ""
             },
             "require": {
@@ -3404,7 +3404,7 @@
                 "selenium",
                 "webdriver"
             ],
-            "time": "2018-03-12T16:40:20+00:00"
+            "time": "2018-03-14T17:23:45+00:00"
         },
         {
             "name": "filp/whoops",
@@ -4608,20 +4608,19 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "dev-master",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "93ade88c83f9e70040fdb8d0b7396d47998dd9f3"
+                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/93ade88c83f9e70040fdb8d0b7396d47998dd9f3",
-                "reference": "93ade88c83f9e70040fdb8d0b7396d47998dd9f3",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
+                "reference": "cd0871b3975fb7fc44d11314fd1ee20925fce4f5",
                 "shasum": ""
             },
             "require": {
-                "ext-posix": "*",
                 "php": "^7.0"
             },
             "require-dev": {
@@ -4655,7 +4654,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2018-03-02T16:25:54+00:00"
+            "time": "2017-07-01T08:51:00+00:00"
         },
         {
             "name": "sebastian/exporter",
