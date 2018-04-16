@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import { colors } from './../../../../tailwind'
-import { randomObjectKey } from './../util'
+import _ from 'lodash'
+import {colors} from './../../../../tailwind'
 
 import {defaultGroup, defaultStory} from "./defaults";
 
@@ -86,7 +86,7 @@ export default new Vuex.Store({
             })
         },
         createNewGroup(context, group) {
-            group.color_class = colors[randomObjectKey(colors)]
+            group.color_class = colors[_.sample(colors)]
             context.dispatch('enableLoading', true)
 
             return new Promise((resolve, reject) => {
@@ -115,9 +115,9 @@ export default new Vuex.Store({
                             resolve(res)
                         }
                     }).catch(err => {
-                        reject(err)
+                    reject(err)
                 })
-                                                                                                               })
+            })
         }
     },
     mutations: {
@@ -146,7 +146,7 @@ export default new Vuex.Store({
             state.groups.push(group)
         },
         addNewStory(state, {story}) {
-            let group = state.groups.find(g=> g.id === story.group_id)
+            let group = state.groups.find(g => g.id === story.group_id)
             group.stories.push(story)
         },
         enableLoading(state, isLoading) {

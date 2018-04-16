@@ -11,13 +11,11 @@
                 <input type="text" class="form-control w-full" id="name"
                        placeholder="Enter a column name (To Do, In Progress, Done)" v-model="group.name">
             </div>
-            <div class="flex">
-                <button type="submit" class="btn p-2 rounded"
+            <div class="flex items-center">
+                <button type="submit" class="btn p-2 rounded mr-4"
                                  :class="{'loader': loading, 'cursor-not-allowed' : group.name.length < 1 }" :disabled="loading || group.name.length < 1">Create column
                 </button>
-                <button type="reset" class="btn p-2 rounded bg-red">
-                    Cancel
-                </button>
+                <a href="#">cancel</a>
             </div>
         </form>
     </modal>

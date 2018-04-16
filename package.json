@@ -25,6 +25,7 @@
     "fine-uploader-wrappers": "^1.1.0",
     "jquery-ui": "^1.12.1",
     "laravel-mix-purgecss": "^1.0.5",
+    "lodash": "^4.17.5",
     "moment": "^2.21.0",
     "underscore": "^1.8.3",
     "vue-fineuploader": "^2.0.0-rc.9",
