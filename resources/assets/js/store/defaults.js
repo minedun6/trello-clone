@@ -1,5 +1,6 @@
 export const defaultGroup = {
     name: '',
+    color_class: ''
 };
 
 export const defaultStory = {

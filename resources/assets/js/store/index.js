@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import { colors } from './../../../../tailwind'
+import { randomObjectKey } from './../util'
 
 import {defaultGroup, defaultStory} from "./defaults";
-
-//import {colors} from '/tailwind'
 
 Vue.use(Vuex);
 
@@ -21,17 +21,17 @@ export default new Vuex.Store({
             context.commit('enableLoading', flag)
         },
         fetchData(context) {
-            context.commit('enableLoading', true)
+            context.dispatch('enableLoading', true)
 
             axios.get('/api/data').then(res => {
                 if (res.data.success) {
                     context.commit('setGroups', res.data.groups)
                     context.commit('setMembers', res.data.members)
-                    context.commit('enableLoading', false)
+                    context.dispatch('enableLoading', false)
                 }
             }).catch(err => {
                 console.log(err)
-                context.commit('enableLoading', false)
+                context.dispatch('enableLoading', false)
             })
         },
         setGroupsOrder(context, payload) {
@@ -44,11 +44,13 @@ export default new Vuex.Store({
             context.dispatch('syncGroupsOrder', context.state.groups)
         },
         syncGroupsOrder(context, groups) {
+            context.dispatch('enableLoading', true)
             return new Promise((resolve, reject) => {
                 axios.put(`/projects/groups/`, {
                     groups: groups
                 }).then(res => {
                     context.commit('setGroups', res.data.groups)
+                    context.dispatch('enableLoading', true)
                     resolve(res)
                 }).catch(err => {
                     reject(err)
@@ -70,10 +72,13 @@ export default new Vuex.Store({
             context.dispatch('syncStoriesOrder', group)
         },
         syncStoriesOrder(context, group) {
+            context.dispatch('enableLoading', true)
+
             return new Promise((resolve, reject) => {
                 axios.put(`/groups/${group.id}/stories`, {
                     stories: group.stories
                 }).then(res => {
+                    context.dispatch('enableLoading', false)
                     resolve(res)
                 }).catch(err => {
                     reject(err)
@@ -81,6 +86,9 @@ export default new Vuex.Store({
             })
         },
         createNewGroup(context, group) {
+            group.color_class = colors[randomObjectKey(colors)]
+            context.dispatch('enableLoading', true)
+
             return new Promise((resolve, reject) => {
                 axios.post('/groups', {
                     group
@@ -95,6 +103,8 @@ export default new Vuex.Store({
             })
         },
         createNewStory(context, {group, story}) {
+            context.dispatch('enableLoading', true)
+
             return new Promise((resolve, reject) => {
                 axios.post('/stories', {story})
                     .then(res => {

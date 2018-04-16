@@ -12,10 +12,10 @@
                        placeholder="Enter a column name (To Do, In Progress, Done)" v-model="group.name">
             </div>
             <div class="flex">
-                <button type="submit" class="btn rounded"
+                <button type="submit" class="btn p-2 rounded"
                                  :class="{'loader': loading, 'cursor-not-allowed' : group.name.length < 1 }" :disabled="loading || group.name.length < 1">Create column
                 </button>
-                <button type="reset" class="btn rounded bg-red">
+                <button type="reset" class="btn p-2 rounded bg-red">
                     Cancel
                 </button>
             </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded shadow px-3 py-2 mb-2">
+    <div class="bg-white rounded shadow px-3 py-2 mb-2" :style="cardBorderStyle">
         <div class="flex mb-2 text-grey-darker items-center">
             <span class="h-4 w-4 mr-1">
                 <font-awesome-icon class="text-grey-darker fill-current opacity-50" :icon="['far', 'calendar-alt']" />
