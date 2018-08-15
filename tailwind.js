@@ -44,6 +44,22 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 */
 
 let colors = {
+
+    'transparent': 'transparent',
+
+    'black': '#2B4964',
+    'grey-darkest': '#626471',
+    'grey-darker': '#878c98',
+    'grey-dark': '#adb4c2',
+    'grey': '#d5d9e3',
+    'grey-light': '#dee1e8',
+    'grey-lighter': '#eaebef',
+    'grey-lightest': '#fcfcfc',
+    'white': '#ffffff',
+
+    'primary': '#2b79c1',
+    'primary-dark': '#266299',
+
     'transparent': 'transparent',
 
     'black': '#22292f',
@@ -99,7 +115,7 @@ let colors = {
     'blue-darkest': '#12283a',
     'blue-darker': '#1c3d5a',
     'blue-dark': '#2779bd',
-    'blue': '#3490dc',
+    'blue': '#2196f3',
     'blue-light': '#6cb2eb',
     'blue-lighter': '#bcdefa',
     'blue-lightest': '#eff8ff',
@@ -194,6 +210,7 @@ module.exports = {
 
     fonts: {
         'sans': [
+            'Lato',
             'system-ui',
             'BlinkMacSystemFont',
             '-apple-system',
@@ -465,6 +482,7 @@ module.exports = {
         '24': '6rem',
         '32': '8rem',
         '48': '12rem',
+        '54': '14rem',
         '64': '16rem',
         '80': '20rem',
         '96': '34rem',
@@ -513,6 +531,7 @@ module.exports = {
         '10': '2.5rem',
         '12': '3rem',
         '16': '4rem',
+        '20': '5rem',
         '24': '6rem',
         '32': '8rem',
         '36': '9rem',
@@ -641,7 +660,10 @@ module.exports = {
         '4': '1rem',
         '6': '1.5rem',
         '8': '2rem',
-        "10": "3rem"
+        '9': '2.5rem',
+        '10': '3rem',
+        '11': '3.5rem',
+        '12': '4rem'
     },
 
 
@@ -671,7 +693,7 @@ module.exports = {
         '6': '1.5rem',
         '8': '2rem',
         '12': '3rem',
-        '16': '4rem',
+        '16': '4rem'
     },
 
 

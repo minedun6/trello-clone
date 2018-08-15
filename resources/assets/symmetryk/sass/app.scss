@@ -1,0 +1,32 @@
+@tailwind preflight;
+
+@tailwind utilities;
+
+.outline-0 {
+  outline: 0;
+}
+
+.menu {
+  display: none;
+  transition: all 2s ease;
+}
+
+.icon-profile:hover .menu {
+  display: block;
+}
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  @apply .font-sans;
+  @apply .leading-normal;
+  @apply .text-grey-darkest;
+}
+
+input[type=text] {
+  &:focus {
+    @apply .bg-white .outline-0;
+  }
+}

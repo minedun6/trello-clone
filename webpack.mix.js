@@ -1,15 +1,21 @@
 let mix = require('laravel-mix');
 let tailwindcss = require('tailwindcss');
-require('laravel-mix-purgecss');
+let purgeCss = require('laravel-mix-purgecss');
 
-mix.js('resources/assets/js/app.js', 'public/js')
+mix.js('resources/assets/symmetryk/js/app.js', 'public/symmetryk/js')
+    .js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
+    .sass('resources/assets/symmetryk/sass/app.scss', 'public/symmetryk/css')
     .disableNotifications()
     .purgeCss()
     .options({
         processCssUrls: false,
-        postCss: [ 
+        postCss: [
             tailwindcss('./tailwind.js'),
-            require('autoprefixer') 
+            require('autoprefixer')
         ],
-});
+    });
+
+if (mix.inProduction()) {
+    mix.version();
+}

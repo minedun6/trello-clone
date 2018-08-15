@@ -1,15 +1,18 @@
 <template>
-    <file-input multiple accept='image/*' :uploader="uploader">
-        <font-awesome-layers class="fa-lg" :class="[attachments.length > 0 ? 'opacity-75 hover:opacity-100' : 'opacity-25 hover:opacity-50']">
-            <font-awesome-icon :icon="['far', 'hdd']"/>
-            <span class="fa-layers-counter" v-show="attachments.length > 0">.</span>
-        </font-awesome-layers>
-    </file-input>
+    <div>
+        <file-input multiple accept='image/*' :uploader="uploader">
+            <font-awesome-layers class="fa-lg" :class="[attachments.length > 0 ? 'opacity-75 hover:opacity-100' : 'opacity-25 hover:opacity-50']">
+                <font-awesome-icon :icon="['far', 'hdd']"/>
+                <span class="fa-layers-counter" v-show="attachments.length > 0">.</span>
+            </font-awesome-layers>
+        </file-input>
+    </div>
 </template>
 
 <script>
     import FineUploaderTraditional from 'fine-uploader-wrappers'
-    import FileInput from "vue-fineuploader/file-input";
+    import FileInput from 'vue-fineuploader/file-input'
+    import ProgressBar from 'vue-fineuploader/progress-bar'
 
     export default {
         props: ["story"],
@@ -46,7 +49,8 @@
         },
 
         components: {
-            FileInput
+            FileInput,
+            ProgressBar
         }
     };
 </script>

@@ -16,3 +16,10 @@ Route::put('/projects/groups/', 'ProjectGroupsController@update');
 Route::put('/groups/{group}/stories', 'GroupStoriesController@update');
 
 Route::get('/api/data', 'Api\ApiDataController');
+
+Route::namespace('Symmetryk')->prefix('symmetryk')->group(function () {
+
+    Route::get('login', 'Pages\PagesController@login');
+    Route::get('home', 'Pages\PagesController@home');
+
+});
